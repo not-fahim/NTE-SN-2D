@@ -79,6 +79,8 @@ class geometry_data
     vector<double> x_i_minus_half, x_i_plus_half, x_i ;
     vector<double> y_j_minus_half, y_j_plus_half, y_j;
 
+    
+
     geometry_data()
     {
         vector<double> x_i_minus_half = range(0,X-del_x,Nx);
@@ -88,6 +90,9 @@ class geometry_data
         vector<double> y_j_minus_half = range(0,Y-del_y,Ny);
         vector<double> y_j_plus_half = range(del_y, Y, Ny);
         vector<double> y_j = cell_midpoints(y_j_minus_half,x_i_plus_half);   
+
+
+
     }
 
 };
@@ -108,6 +113,8 @@ class flux_and_boundary_flux
 
 class sweep_direction_class
 {
+    //this class provides the set of data required for setting direction for sweeps. there can be left to right, bottom to top and any order for both the axes
+    //for example sweep('L', 'B', geometry) will sweep from left to right and bottom to top
     public:
     int x_start, y_start, x_dir, y_dir;
     int Nx, Ny;
@@ -143,35 +150,43 @@ class sweep_direction_class
     }
 };
 
-int sweep_part(sweep_direction_class sweep_dir, double* psi_i_j, double* psi_i_j_half)
-{
-    for(int i=sweep_dir.x_start; i<sweep_dir.Nx; i=i+sweep_dir.x_dir)
+
+
+class sweeper_class{
+
+    public:
+    geometry_data geometry;
+    angular angle;
+    vector<vector<double>> psi_ij, psi_ij_half;
+
+    sweeper_class(geometry_data geometry1, angular angle1)
     {
-        for(int j=sweep_dir.y_start; j<sweep_dir.Ny;j+= sweep_dir.y_dir)
+        geometry = geometry1;
+        angle = angle1;
+        flux_and_boundary_flux phi_psi(geometry.Nx, geometry.Ny, angle.total_num, 0 );
+
+        vector<vector<double>> psi_ij(geometry.Nx,vector<double> (geometry.Ny,0));
+        vector<vector<double>> psi_ij_half(geometry.Nx+1, vector<double> (geometry.Ny+1,0) );
+    }
+
+    flux_and_boundary_flux      transport_sweep(double Q[geometry.Nx][geometry.Ny])
+    {
+
+    }
+
+
+    int sweep_part(sweep_direction_class sweep_dir, int n)
+    {
+        for(int i=sweep_dir.x_start; i<sweep_dir.Nx; i=i+sweep_dir.x_dir)
         {
-            psi_i_j[i][j] = (geometry.sigma_t + 2*angle.mu[n]/geometry.del_x + 2*angle.mu[n]/geometry.del_y)*(2*angle.mu[n]/geometry.del_x * psi_i_j_half[i-sweep_dir.x_dir][j] + 2*angle.mu[n]/geometry.del_x*psi_i_j_half[i][j-sweep_dir.y_dir]) ;
-            
+            for(int j=sweep_dir.y_start; j<sweep_dir.Ny;j+= sweep_dir.y_dir)
+            {
+                psi_ij[i][j] = (geometry.sigma_t + 2*angle.mu[n]/geometry.del_x + 2*angle.mu[n]/geometry.del_y)*(2*angle.mu[n]/geometry.del_x * psi_ij_half[i-sweep_dir.x_dir][j] + 2*angle.mu[n]/geometry.del_x*psi_ij_half[i][j-sweep_dir.y_dir]) ;
+                
+            }
         }
-    }
 }
-
-
-flux_and_boundary_flux transport_sweep(geometry_data geometry, angular angle)
-{
-    flux_and_boundary_flux phi_psi(geometry.Nx, geometry.Ny, angle.total_num, 0 );
-    
-    double psi_i_j[geometry.Nx][geometry.Ny] = {0};
-    double psi_i_j_half[geometry.Nx+1][geometry.Ny+1]={0};
-
-    
-
-    for(int n = 0; n < angle.total_num; n++)
-    {
-        sweep_direction_class sweep_dir('L', 'B', &geometry);
-
-    }
-}
-
+};
 
 
 
