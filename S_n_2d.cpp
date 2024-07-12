@@ -1,5 +1,6 @@
 #include <iostream>
 #include<vector>
+#include<cmath>
 
 using namespace std;
 
@@ -98,17 +99,11 @@ class geometry_data
 };
 
 
-class flux_and_boundary_flux
+class boundary_flux
 {
     public:
-    double* flux;
-    double* boundary_flux;
+    vector<vector<vector<double>>> bottom, right, top, left ;
     
-    flux_and_boundary_flux(int Nx,int Ny,int angles, double default_val)
-    {
-        double boundary_flux[2*(Nx+Ny)][angles*2] = {default_val};
-        double flux[Nx][Ny] = {default_val};
-    }
 };
 
 class sweep_direction_class
@@ -116,37 +111,65 @@ class sweep_direction_class
     //this class provides the set of data required for setting direction for sweeps. there can be left to right, bottom to top and any order for both the axes
     //for example sweep('L', 'B', geometry) will sweep from left to right and bottom to top
     public:
-    int x_start, y_start, x_dir, y_dir;
-    int Nx, Ny;
+    int x_start, x_end, y_start, y_end , x_dir, y_dir;
+    int Nx, Ny, V_reflect, H_reflect;
 
     sweep_direction_class(char x_first, char y_first, geometry_data* geometry)
     {
         Nx = geometry->Nx;
         Ny = geometry->Ny;
+
         
         //x axis
         if (x_first = 'L' )
         {
             x_start = 0;
+            x_end = Nx;
             x_dir = 1;
+
+            if (y_first = 'B' )
+            {
+                y_start = 0;
+                y_end =0;
+                y_dir = 1;
+                V_reflect = 1;
+                H_reflect = 3;
+            }
+            if (y_first = 'T' )
+            {
+                y_start = geometry->Ny;
+                y_end = 0;
+                y_dir = -1;
+                V_reflect = 2;
+                H_reflect = 0;
+            }
         }
         if (x_first = 'R' )
         {
             x_start = geometry->Nx;
+            x_end = 0;
             x_dir = -1;
+
+            if (y_first = 'B' )
+            {
+                y_start = 0;
+                y_end =0;
+                y_dir = 1;
+                V_reflect = 0;
+                H_reflect = 2;
+            }
+            if (y_first = 'T' )
+            {
+                y_start = geometry->Ny;
+                y_end = 0;
+                y_dir = -1;
+                V_reflect = 3;
+                H_reflect = 1;
+            }
         }
 
         //y axis
-        if (y_first = 'B' )
-        {
-            y_start = 0;
-            y_dir = 1;
-        }
-        if (y_first = 'T' )
-        {
-            y_start = geometry->Ny;
-            y_dir = -1;
-        }
+
     }
 };
 
@@ -157,35 +180,57 @@ class sweeper_class{
     public:
     geometry_data geometry;
     angular angle;
-    vector<vector<double>> psi_ij, psi_ij_half;
-
+    vector<vector<double>> psi_ij;
+    vector<vector<double>> flux_ij;
+    vector<vector<double>> Q;
+    vector<vector<vector<double>>> psi_boun_B, psi_boun_R, psi_boun_T, psi_boun_L ;
     sweeper_class(geometry_data geometry1, angular angle1)
     {
         geometry = geometry1;
         angle = angle1;
-        flux_and_boundary_flux phi_psi(geometry.Nx, geometry.Ny, angle.total_num, 0 );
-
-        vector<vector<double>> psi_ij(geometry.Nx,vector<double> (geometry.Ny,0));
-        vector<vector<double>> psi_ij_half(geometry.Nx+1, vector<double> (geometry.Ny+1,0) );
+        vector<vector<double>> psi_ij(2*geometry.Nx+1, vector<double> (2*geometry.Ny+1,0));
     }
 
-    flux_and_boundary_flux      transport_sweep(double Q[geometry.Nx][geometry.Ny])
+    int transport_sweep(vector<vector<double>> q, vector<vector<double>> flux)
     {
-
-    }
-
-
-    int sweep_part(sweep_direction_class sweep_dir, int n)
-    {
-        for(int i=sweep_dir.x_start; i<sweep_dir.Nx; i=i+sweep_dir.x_dir)
+        flux_ij = flux;
+        Q = q;
+        int n;
+        for (n = 0; n< (angle.total_num); n++);
         {
-            for(int j=sweep_dir.y_start; j<sweep_dir.Ny;j+= sweep_dir.y_dir)
-            {
-                psi_ij[i][j] = (geometry.sigma_t + 2*angle.mu[n]/geometry.del_x + 2*angle.mu[n]/geometry.del_y)*(2*angle.mu[n]/geometry.del_x * psi_ij_half[i-sweep_dir.x_dir][j] + 2*angle.mu[n]/geometry.del_x*psi_ij_half[i][j-sweep_dir.y_dir]) ;
-                
-            }
+            sweep_direction_class sweep_dir('L', 'B', &geometry);
+            sweep_part(sweep_dir, n, Q);
+
+            sweep_direction_class sweep_dir('R', 'B', &geometry);
+            sweep_part(sweep_dir, n, Q);
+
+            sweep_direction_class sweep_dir('L', 'T', &geometry);
+            sweep_part(sweep_dir, n, Q);
+
+            sweep_direction_class sweep_dir('R', 'T', &geometry);
+            sweep_part(sweep_dir, n, Q);
         }
-}
+        return 0;
+    }
+
+
+    int sweep_part(sweep_direction_class sweep_dir, int n, vector<vector<double>> Q)
+    {
+        int cell_x, cell_y;
+        for(int i=sweep_dir.x_start; 0<=i && i<sweep_dir.Nx; i=i+sweep_dir.x_dir)
+        {
+            cell_x = 2*i+1;
+            for(int j=sweep_dir.y_start; 0<=j && j<sweep_dir.Ny;j+= sweep_dir.y_dir)
+            {
+                cell_y = 2*j+1;
+                psi_ij[cell_x][cell_y] = (geometry.sigma_t + 2*angle.mu[n]/geometry.del_x + 2*angle.mu[n]/geometry.del_y)*(2*angle.mu[n]/geometry.del_x * psi_ij[cell_x-sweep_dir.x_dir][cell_y] + 2*angle.mu[n]/geometry.del_y*psi_ij[cell_x][cell_y-sweep_dir.y_dir]+1/(4*M_PI)*Q[cell_x][cell_y]) ;
+                psi_ij[cell_x+sweep_dir.x_dir][cell_y] = 2*psi_ij[cell_x][cell_y] - psi_ij[cell_x-sweep_dir.x_dir][cell_y];
+                psi_ij[cell_x][cell_y+sweep_dir.y_dir] = 2*psi_ij[cell_x][cell_y] - psi_ij[cell_x][cell_y-sweep_dir.y_dir];
+                flux_ij[i][j] = flux_ij[i][j] + (1/4)*angle.w[n]*psi_ij[cell_x][cell_y];
+            }
+            
+        }
+    }
 };
 
 
@@ -196,6 +241,12 @@ int main()
     //angular discretization
     angular angle;
     geometry_data geometry;
+    vector<vector<double>> flux(geometry.Nx,vector<double> (geometry.Ny,0));
+    vector<vector<double>> flux_old(geometry.Nx,vector<double> (geometry.Ny,0));
+    vector<vector<double>> q(geometry.Nx,vector<double> (geometry.Ny,0));
+
+    
+
 
 
     
