@@ -5,6 +5,52 @@
 
 using namespace std;
 
+vector<vector<double>> fraction_error(vector<vector<double>> vector1, vector<vector<double>> vector2)
+{
+    try
+    {
+        if(size(vector1) != size(vector2) || size(vector1[0]) != size(vector2[0]))
+        {
+            string str = "vectors are not of the same size";
+            throw str;   
+        }
+        vector<vector<double>> fraction_error(size(vector1), vector<double> (size(vector1[0]), 0));
+        for (int i=0; i< size(vector1); i++)
+        {
+            for (int j=0; j< size(vector1[0]); j++)
+            {
+                fraction_error[i][j] = (vector1[i][j] - vector2[i][j])/vector1[i][j];
+            }    
+        }
+        return fraction_error;
+
+    }
+
+    catch (string str)
+    {
+        cout<<str<<endl;
+    }
+    vector<vector<double>> a;
+    return a;
+    
+}
+
+template <typename t>
+t abs_max_fraction_error(vector<vector<t>> vector1)
+{
+    t max = abs(vector1[0][0]);
+    for(int i=0; i<size(vector1); i++)
+    {
+        for(int j=0; j<size(vector1[0]); j++)
+        {
+            if(abs(vector1[i][j]) > max )
+                max = abs(vector1[i][j]);
+        }
+
+    }
+    return max;
+}
+
 vector<double> range(double min, double max, size_t N) 
 {
     vector<double> range;
@@ -87,7 +133,11 @@ class geometry_data
     vector<double> x_i_minus_half, x_i_plus_half, x_i ;
     vector<double> y_j_minus_half, y_j_plus_half, y_j;
 
-    
+    //boundary condition:
+    //horizontal:
+    double alpha_top_bottom[2];
+    //vertical:
+    double alpha_left_right[2];
 
     geometry_data()
     {
@@ -99,7 +149,11 @@ class geometry_data
         y_j_plus_half = range(del_y, Y, Ny);
         y_j = cell_midpoints(y_j_minus_half,x_i_plus_half);   
 
+        alpha_top_bottom[0] = 0;
+        alpha_top_bottom[1] = 0;
 
+        alpha_left_right[0] = 0;
+        alpha_left_right[1] = 0;
 
     }
 
@@ -282,11 +336,11 @@ class sweeper_class{
 
                 if(i==sweep_dir.x_end) //vertical boundary
                 {
-                    left_right[abs(1-sweep_dir.V_boun_start)][sweep_dir.V_reflect][j][n] = 0*psi_ij[cell_x+sweep_dir.x_dir][cell_y];
+                    left_right[abs(1-sweep_dir.V_boun_start)][sweep_dir.V_reflect][j][n] = geometry.alpha_left_right[abs(1-sweep_dir.V_boun_start)]*psi_ij[cell_x+sweep_dir.x_dir][cell_y];
                 }
                 if(j==sweep_dir.y_end) //horizontal boundary
                 {
-                    bottom_top[abs(1-sweep_dir.H_boun_start)][sweep_dir.H_reflect][i][n] = 0*psi_ij[cell_x][cell_y+sweep_dir.y_dir];
+                    bottom_top[abs(1-sweep_dir.H_boun_start)][sweep_dir.H_reflect][i][n] = geometry.alpha_top_bottom[abs(1-sweep_dir.H_boun_start)]*psi_ij[cell_x][cell_y+sweep_dir.y_dir];
                 }                 
             
 
@@ -322,18 +376,9 @@ int main()
     }
 
     sweep_object.transport_sweep(q, flux_old);
-    for(int i=0; i<geometry.Nx; i++)
-    {
-        for (int j=0; j<geometry.Ny; j++)
-        {
-            fission_source[i][j] = sweep_object.flux_ij[i][j] * geometry.nu_sigma_f;
-            q[i][j] = (fission_source[i][j]+sweep_object.flux_ij[i][j]*geometry.sigma_s); 
-        }
-        
-    }
 
-    sweep_object.transport_sweep(q, sweep_object.flux_ij);
-
+    vector<vector<double>>diff = fraction_error(flux_old, sweep_object.flux_ij);
+    double max_error = abs_max_fraction_error(diff);
 
 
     for(int i=0; i<geometry.Nx; i++)
@@ -345,8 +390,14 @@ int main()
         cout<<endl;
     }
 
+    for(int i=0; i<geometry.Nx; i++)
+    {
+        for(int j=0; j<geometry.Ny; j++)
+        {
+            cout<<diff[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 
-
-
-
+    cout<<max_error;
 }
