@@ -5,6 +5,35 @@
 
 using namespace std;
 
+template <typename t>
+vector<vector<t>> set_zero(vector<vector<t>> &vector1)
+{
+    for (int i=0; i<size(vector1); i++)
+    {
+        for(int j=0; j<size(vector1[i]); j++)
+        {
+            vector1[i][j] = 0.0;
+        }
+    }
+
+    return vector1;
+}
+
+template <typename t>
+t sum(vector<vector<t>> vector1)
+{
+    t sum;
+    for (int i=0; i<size(vector1); i++)
+    {
+        for(int j=0; j<size(vector1[0]); j++)
+        {
+            sum = sum+vector1[i][j];
+        }
+    }
+
+    return sum;
+}
+
 vector<vector<double>> fraction_error(vector<vector<double>> vector1, vector<vector<double>> vector2)
 {
     try
@@ -14,12 +43,12 @@ vector<vector<double>> fraction_error(vector<vector<double>> vector1, vector<vec
             string str = "vectors are not of the same size";
             throw str;   
         }
-        vector<vector<double>> fraction_error(size(vector1), vector<double> (size(vector1[0]), 0));
+        vector<vector<double>> fraction_error(size(vector1), vector<double> (size(vector1[0]), 0.0));
         for (int i=0; i< size(vector1); i++)
         {
             for (int j=0; j< size(vector1[0]); j++)
             {
-                fraction_error[i][j] = (vector1[i][j] - vector2[i][j])/vector1[i][j];
+                fraction_error[i][j] = (vector1[i][j] - vector2[i][j])/vector2[i][j];
             }    
         }
         return fraction_error;
@@ -36,7 +65,7 @@ vector<vector<double>> fraction_error(vector<vector<double>> vector1, vector<vec
 }
 
 template <typename t>
-t abs_max_fraction_error(vector<vector<t>> vector1)
+t abs_max(vector<vector<t>> vector1)
 {
     t max = abs(vector1[0][0]);
     for(int i=0; i<size(vector1); i++)
@@ -49,6 +78,32 @@ t abs_max_fraction_error(vector<vector<t>> vector1)
 
     }
     return max;
+}
+
+template <typename t>
+bool is_flux_converged(vector<vector<t>> vector1, vector<vector<t>> vector2 )
+{
+    if(abs_max(fraction_error(vector1, vector2)) < pow(10,-7) )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <typename t>
+bool is_keff_converged(t var1, t var2 )
+{
+    if(abs(var2-var1)/var2 < pow(10,-7) )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 vector<double> range(double min, double max, size_t N) 
@@ -116,18 +171,17 @@ class angular
     }    
 };
 
-class geometry_data
+class geometry_class
 {
-    double X = 4.0, Y=4.0;
+    double X = 2.0, Y=2.0;
     
 
     public:
-    double sigma_t= 1;
+    double sigma_t= 1.0;
     double sigma_s = 0.7;
     double nu_sigma_f = 0.39;
-    int albedo[4] = {0,0,0,0};
 
-    int Nx = 8, Ny = 10;
+    int Nx = 10, Ny = 10;
 
     double del_x = X/ double(Nx), del_y = Y/double(Ny);
     vector<double> x_i_minus_half, x_i_plus_half, x_i ;
@@ -139,7 +193,7 @@ class geometry_data
     //vertical:
     double alpha_left_right[2];
 
-    geometry_data()
+    geometry_class()
     {
         x_i_minus_half = range(0,X-del_x,Nx);
         x_i_plus_half = range(del_x, X, Nx);
@@ -149,12 +203,27 @@ class geometry_data
         y_j_plus_half = range(del_y, Y, Ny);
         y_j = cell_midpoints(y_j_minus_half,x_i_plus_half);   
 
-        alpha_top_bottom[0] = 0;
-        alpha_top_bottom[1] = 0;
+        alpha_top_bottom[0] = 1; // top
+        alpha_top_bottom[1] = 0; //bottom
 
-        alpha_left_right[0] = 0;
+        alpha_left_right[0] = 1;
         alpha_left_right[1] = 0;
 
+    }
+
+    vector<vector<double>>  calculate_fission_source(vector<vector<double>>  flux)
+    {
+        vector<vector<double>> calculate_fission_source = flux;
+        for(int i=0; i<Nx; i++)
+        {
+            for (int j=0; j<Ny; j++)
+            {
+                calculate_fission_source[i][j] = flux[i][j] * nu_sigma_f;
+            }
+            
+        }
+
+        return calculate_fission_source;
     }
 
 };
@@ -166,10 +235,10 @@ class boundary_flux_class
     vector<vector<vector<vector<double>>>> bottom_top, left_right;
     boundary_flux_class(int xpoints,int ypoints, int angles)
     {
-        vector<vector<vector<vector<double>>>> bottom_top1(2, vector<vector<vector<double>>>(4, vector<vector<double>> (xpoints, vector<double> (angles, 0))));
+        vector<vector<vector<vector<double>>>> bottom_top1(2, vector<vector<vector<double>>>(4, vector<vector<double>> (xpoints, vector<double> (angles, 0.0))));
         bottom_top = bottom_top1;
 
-        vector<vector<vector<vector<double>>>> left_right1(2, vector<vector<vector<double>>>(4, vector<vector<double>> (ypoints, vector<double> (angles, 0))));
+        vector<vector<vector<vector<double>>>> left_right1(2, vector<vector<vector<double>>>(4, vector<vector<double>> (ypoints, vector<double> (angles, 0.0))));
         left_right = left_right1;
     }
     
@@ -183,7 +252,7 @@ class sweep_direction_class
     int x_start, x_end, y_start, y_end , x_dir, y_dir, V_boun_start, H_boun_start;
     int Nx, Ny, H_reflect, V_reflect, H_in, V_in;
 
-    void set_sweep_direction(char x_first, char y_first, geometry_data* geometry)
+    void set_sweep_direction(char x_first, char y_first, geometry_class* geometry)
     {
         Nx = geometry->Nx;
         Ny = geometry->Ny;
@@ -263,31 +332,33 @@ class sweep_direction_class
 class sweeper_class{
 
     public:
-    geometry_data geometry;
+    geometry_class geometry;
     angular angle;
     vector<vector<double>> psi_ij;
     vector<vector<double>> flux_ij;
     vector<vector<double>> Q;
     vector<vector<vector<vector<double>>>> bottom_top, left_right;
     
-    sweeper_class(geometry_data geometry1, angular angle1)
+    sweeper_class(geometry_class geometry1, angular angle1)
     {
         geometry = geometry1;
         angle = angle1;
-        vector<vector<double>> psi_ij1(2*geometry.Nx+1, vector<double> (2*geometry.Ny+1,0));
+        vector<vector<double>> psi_ij1(2*geometry.Nx+1, vector<double> (2*geometry.Ny+1,0.0));
         psi_ij = psi_ij1;
 
+        vector<vector<double>> flux1(geometry.Nx, vector<double> (geometry.Ny,1.0));
+        flux_ij = flux1;
         
-        vector<vector<vector<vector<double>>>> bottom_top1(2, vector<vector<vector<double>>>(4, vector<vector<double>> (geometry.Nx, vector<double> (angle.total_num, 0))));
+        vector<vector<vector<vector<double>>>> bottom_top1(2, vector<vector<vector<double>>>(4, vector<vector<double>> (geometry.Nx, vector<double> (angle.total_num, 0.0))));
         bottom_top = bottom_top1;
 
-        vector<vector<vector<vector<double>>>> left_right1(2, vector<vector<vector<double>>>(4, vector<vector<double>> (geometry.Ny, vector<double> (angle.total_num, 0))));
+        vector<vector<vector<vector<double>>>> left_right1(2, vector<vector<vector<double>>>(4, vector<vector<double>> (geometry.Ny, vector<double> (angle.total_num, 0.0))));
         left_right = left_right1;
     }
 
-    vector<vector<double>> transport_sweep(vector<vector<double>> q, vector<vector<double>> flux)
+    vector<vector<double>> transport_sweep(vector<vector<double>> q)
     {
-        flux_ij = flux;
+        flux_ij = set_zero(flux_ij);
         Q = q;
         
         sweep_direction_class sweep_dir;
@@ -328,7 +399,8 @@ class sweeper_class{
                 {
                     psi_ij[cell_x][cell_y - sweep_dir.y_dir] = bottom_top[sweep_dir.H_boun_start][sweep_dir.H_in][i][n];
                 }
-                psi_ij[cell_x][cell_y] = 1.0/(geometry.sigma_t + 2.0*angle.mu[angle.sequence[n]]/geometry.del_x + 2.0*angle.mu[angle.sequence[n]]/geometry.del_y)*(2.0*angle.mu[angle.sequence[n]]/geometry.del_x * psi_ij[cell_x-sweep_dir.x_dir][cell_y] + 2.0*angle.mu[angle.sequence[n]]/geometry.del_y*psi_ij[cell_x][cell_y-sweep_dir.y_dir]+1.0/(4.0*M_PI)*Q[i][j]) ;
+                psi_ij[cell_x][cell_y] = 1.0/(geometry.sigma_t + 2.0*angle.mu[angle.sequence[n]]/geometry.del_x + 2.0*angle.mu[angle.sequence[n]]/geometry.del_y)
+                                            *(2.0*angle.mu[angle.sequence[n]]/geometry.del_x * psi_ij[cell_x-sweep_dir.x_dir][cell_y] + 2.0*angle.mu[angle.sequence[n]]/geometry.del_y*psi_ij[cell_x][cell_y-sweep_dir.y_dir]+Q[i][j]) ;
                 psi_ij[cell_x+sweep_dir.x_dir][cell_y] = 2.0*psi_ij[cell_x][cell_y] - psi_ij[cell_x-sweep_dir.x_dir][cell_y];
                 psi_ij[cell_x][cell_y+sweep_dir.y_dir] = 2.0*psi_ij[cell_x][cell_y] - psi_ij[cell_x][cell_y-sweep_dir.y_dir];
                 
@@ -359,45 +431,51 @@ int main()
 
     //angular discretization
     angular angle;
-    geometry_data geometry;
+    geometry_class geometry;
+    double keff = 1.0, keff_old=0.0;
     
     sweeper_class sweep_object(geometry, angle);
-    vector<vector<double>> flux_old(geometry.Nx, vector<double> (geometry.Ny,1));
-    vector<vector<double>> q(geometry.Nx, vector<double> (geometry.Ny,0));
-    vector<vector<double>> fission_source = q, fission_source_new;
-    for(int i=0; i<geometry.Nx; i++)
+    vector<vector<double>> flux_old(geometry.Nx, vector<double> (geometry.Ny,0.0));
+    vector<vector<double>> q(geometry.Nx, vector<double> (geometry.Ny,0.0));
+    vector<vector<double>> fission_source = q, fission_source_old;
+
+    fission_source = geometry.calculate_fission_source(sweep_object.flux_ij);
+
+    int count = 0;
+    while(!is_keff_converged(keff_old, keff))
     {
-        for (int j=0; j<geometry.Ny; j++)
+
+        flux_old = set_zero(flux_old);
+        while(!is_flux_converged(flux_old, sweep_object.flux_ij))
         {
-            fission_source[i][j] = flux_old[i][j] * geometry.nu_sigma_f;
-            q[i][j] = (fission_source[i][j]+flux_old[i][j]*geometry.sigma_s); 
+            
+            
+            for(int i=0; i<geometry.Nx; i++)
+            {
+                for (int j=0; j<geometry.Ny; j++)
+                {
+                    q[i][j] = (1/keff*fission_source[i][j]+sweep_object.flux_ij[i][j]*geometry.sigma_s);
+                }
+                
+            }
+
+            flux_old = sweep_object.flux_ij;
+            sweep_object.transport_sweep(q);
+
+            count = count+1;
+            cout<<count<<endl;
         }
         
+
+        fission_source_old = fission_source;
+        fission_source = geometry.calculate_fission_source(sweep_object.flux_ij);
+
+        keff_old = keff;
+        keff = keff * sum(fission_source)/sum(fission_source_old);
+
+        cout<<keff<<endl;
+
     }
-
-    sweep_object.transport_sweep(q, flux_old);
-
-    vector<vector<double>>diff = fraction_error(flux_old, sweep_object.flux_ij);
-    double max_error = abs_max_fraction_error(diff);
-
-
-    for(int i=0; i<geometry.Nx; i++)
-    {
-        for(int j=0; j<geometry.Ny; j++)
-        {
-            cout<<sweep_object.flux_ij[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-
-    for(int i=0; i<geometry.Nx; i++)
-    {
-        for(int j=0; j<geometry.Ny; j++)
-        {
-            cout<<diff[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-
-    cout<<max_error;
+    cout<<count;
+    ;
 }
