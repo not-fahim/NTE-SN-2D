@@ -3,7 +3,7 @@
 #include<cmath>
 #include<iomanip>
 #include<fstream>
-#include "UAL-2-0-SL.cpp"
+#include "PUa-1-0-SL.cpp"
 
 
 double intol = 10e-10;
@@ -203,34 +203,130 @@ class angular
     vector<double> mu, mu_sequence, eta_sequence;
     vector<double> w;
     int total_num;
-    angular()
+    angular(int N);
+    
+};
+
+angular::angular(int N)
+{
+    
+    if(N==2) //S2 quadrature
     {
+        //mapping weights for each angluar direction
+        sequence = vector<int> { 
+            1
+        };
 
-        vector<int>
-                   sequence1{ 1,
-                              2, 2,
-                              3, 5, 3,
-                              4, 6, 6, 4,
-                              4, 7, 8, 7, 4,
-                              3, 6, 8, 8, 6, 3,
-                              2, 5, 6, 7, 6, 5, 2,
-                              1, 2, 3, 4, 4, 3, 2, 1 };
+        mu = vector<double> {
+            1.0/sqrt(3.0)
+        };
 
+        w = vector<double> {1.0};
+    }
 
-        for(int i=0; i<8 ; i++)
+    if(N==4) //S4
+    {
+        //mapping weights for each angluar direction
+        sequence = vector<int> {
+            1,
+            1, 1
+        };
+
+        mu = vector<double> {
+            0.30163878,
+            0.90444905
+        };
+
+        w = vector<double> {0.33333333};
+    }
+
+    if(N==6) // S6
+    {
+        //mapping weights for each angluar direction
+        sequence = vector<int>{
+            1,
+            2, 2,
+            1, 2, 1
+        };
+        mu = vector<double>{
+            0.23009194,
+            0.68813432,
+            0.94557676
+        };
+        w = vector<double> {
+            0.16944656,
+            0.16388677
+        };
+    }
+
+    if(N==8) //S8
+    {
+        //mapping weights for each angluar direction
+        sequence = vector<int> {
+            1,
+            2, 2,
+            2, 3, 2,
+            1, 2, 2, 1
+        };
+        mu = vector<double> { 
+            0.19232747,
+            0.57735027,
+            0.79352178,
+            0.96229948
+        };
+        w = vector<double> 
         {
-            for(int j=0;j<=i;j++)
-            {
-                mu_sequence.push_back(i-j);
-                eta_sequence.push_back(j);
-            }
-        }
+            0.11678847,
+            0.09325523,
+            0.09010320
+        };
+
+    }
+    
+    if(N==12) //S12
+    {
+        //mapping weights for each angluar direction
+        sequence = vector<int> {
+            1,
+            2, 2,
+            3, 4, 3,
+            3, 5, 5, 3,
+            2, 4, 5, 4, 2,
+            1, 2, 3, 3, 2, 1
+        };
+        mu=vector<double>{
+            0.15395746,
+            0.45769112,
+            0.62869660,
+            0.76225828,
+            0.87568027,
+            0.97600932
+        };
+        w = vector<double>{
+            0.07332178,
+            0.05266740,
+            0.04161495,
+            0.03895667,
+            0.03249018
+        };
+    }
+
+    if(N==16) //S16
+    {
+        vector<int> sequence1{ 
+            1,
+            2, 2,
+            3, 5, 3,
+            4, 6, 6, 4,
+            4, 7, 8, 7, 4,
+            3, 6, 8, 8, 6, 3,
+            2, 5, 6, 7, 6, 5, 2,
+            1, 2, 3, 4, 4, 3, 2, 1 
+        };
 
         sequence = sequence1;
         for (int i=0; i<size(sequence);i++)
             sequence[i]=sequence[i]-1;
-
-        total_num = size(sequence);
 
         vector<double>mu1{  0.13344572,
                             0.39119433,
@@ -251,7 +347,22 @@ class angular
                             0.01544801 };
         w=w1;
     }
-};
+    
+    //mapping mu and eta for each angular direction
+    for(int i=0; i<size(mu) ; i++)
+    {
+        for(int j=0;j<=i;j++)
+        {
+            mu_sequence.push_back(i-j);
+            eta_sequence.push_back(j);
+        }
+    }
+
+    for (int i=0; i<size(sequence);i++)
+        sequence[i]=sequence[i]-1;
+
+    total_num = size(sequence);
+}
 
 
 class geometry_class
@@ -276,9 +387,9 @@ class geometry_class
     geometry_class(int mesh_num, double r_c)
     {
         X= r_c;
-        Y= 2;
+        Y= r_c;
         Nx= mesh_num;
-        Ny=2;
+        Ny=mesh_num;
         alpha_B = BC[0]; // bottom
         alpha_T = BC[1]; //top
 
@@ -617,7 +728,7 @@ int main()
     cout << "give number of mesh in one axis"<<endl;
     cin>>mesh_num;
     //angular discretization
-    angular angle;
+    angular angle(N);
     //form geometry
     geometry_class geometry(mesh_num, r_c);
 
