@@ -24,8 +24,8 @@ struct mat_class
 struct input_class
 {
     std::string name, xsfile;
-    std::vector<cell_class> cellX;
-    std::vector<cell_class> cellY;
+    std::vector<cell_class> cellX_vector;
+    std::vector<cell_class> cellY_vector;
     std::vector< std::vector<int>> matmap_cell;
     std::vector<double> BC;
     int S_n;

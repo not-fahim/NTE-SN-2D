@@ -67,11 +67,11 @@ input_class read_input_file()
         } 
         else if (keyword == "CellX") 
         {
-            parseCoordinates(linestream, input_obj.cellX);
+            parseCoordinates(linestream, input_obj.cellX_vector);
         } 
         else if (keyword == "CellY") 
         {
-            parseCoordinates(linestream, input_obj.cellY);
+            parseCoordinates(linestream, input_obj.cellY_vector);
         } 
         else if(keyword == "BC")
         {
@@ -223,12 +223,12 @@ void print_input_data(const input_class& data) {
     std::cout << "SN Value: " << data.S_n << std::endl;
 
     std::cout << "\nCellX Data:" << std::endl;
-    for (const auto& cell : data.cellX) {
+    for (const auto& cell : data.cellX_vector) {
         std::cout << "  Dimension: " << cell.cell_dim << ", Mesh Number: " << cell.mesh_num << std::endl;
     }
 
     std::cout << "\nCellY Data:" << std::endl;
-    for (const auto& cell : data.cellY) {
+    for (const auto& cell : data.cellY_vector) {
         std::cout << "  Dimension: " << cell.cell_dim << ", Mesh Number: " << cell.mesh_num << std::endl;
     }
 
