@@ -27,7 +27,7 @@ struct input_class
     std::vector<cell_class> cellX_vector;
     std::vector<cell_class> cellY_vector;
     std::vector< std::vector<int>> matmap_cell;
-    std::vector<double> BC;
+    std::vector<double> BC; //BTLR
     int S_n;
     std::vector<mat_class> mat_vector;
 };
