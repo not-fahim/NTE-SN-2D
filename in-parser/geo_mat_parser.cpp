@@ -29,16 +29,51 @@ void parseCoordinates( stringstream& ss,  vector<cell_class>& targetVector) {
     }
 }
 
+std::string read_global_file()
+{
+    string filename = "input.dotb";
+    ifstream inputfile(filename);
+    string line;
+    if(!inputfile.is_open())
+    {
+        cerr<<"error: Could not open global input file"<<endl;
+        return "nan";
+    }
+
+    while(getline(inputfile, line))
+    {
+        if(line.empty())
+            continue;
+        
+        stringstream linestream(line);
+        string keyword;
+        linestream >> keyword;
+
+        if(keyword[0] == '%')
+            continue;
+        
+        else if(keyword == "problem")
+        {
+            string problemfilename;
+            linestream >> problemfilename;
+            inputfile.close();
+            return problemfilename;
+        }
+    }
+    inputfile.close();
+    return "nan";
+}
+
+
 input_class read_input_file()
 {
     input_class input_obj;
-    string filename;
-    cout<<" give name for the input file"<<endl;
-    cin>> filename;
-    //openfile
-    ifstream inputFile(filename); 
+
+    string problemfilename = read_global_file();
+    ifstream inputFile(problemfilename); 
+    
     if (!inputFile.is_open()) {
-         cerr << "Error: Could not open input.txt" <<  endl;
+         cerr << "Error: Could not open:"<<problemfilename <<  endl;
         input_obj.name = "nan";
         return input_obj;
     }
@@ -52,10 +87,10 @@ input_class read_input_file()
         {
             continue; 
         }
-
         stringstream linestream(line);
         string keyword;
         linestream >> keyword; //first word to identify the line's purpose
+
         if(keyword[0] == '%') //comment line
         {
             continue;
@@ -64,7 +99,21 @@ input_class read_input_file()
         if (keyword == "Name") 
         {
             linestream >> input_obj.name;
-        } 
+        }
+        else if(keyword=="tol")
+        {
+            double value;
+            if(linestream >> value)
+                input_obj.tol_in = value;
+            if(linestream >> value)
+                input_obj.tol_out = value;
+        }
+        else if(keyword=="maxit")
+        {
+            double value;
+            if(linestream >> value)
+                input_obj.max_it = value;
+        }
         else if (keyword == "CellX") 
         {
             parseCoordinates(linestream, input_obj.cellX_vector);

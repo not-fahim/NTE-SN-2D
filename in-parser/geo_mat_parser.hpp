@@ -28,11 +28,13 @@ struct input_class
     std::vector<cell_class> cellY_vector;
     std::vector< std::vector<int>> matmap_cell;
     std::vector<double> BC; //BTLR
-    int S_n;
+    int S_n, max_it;
     std::vector<mat_class> mat_vector;
+    double tol_out, tol_in;
 };
 
 input_class read_input_file();
+std::string read_global_file();
 void parseCoordinates( std::stringstream& ss,  std::vector<cell_class>& targetVector);
 std::vector<mat_class> read_material_input(std::string filename);
 void print_input_data(const input_class& data);
