@@ -5,32 +5,35 @@
 
 % name of the problem:
 
-Name UAL-2-0-SL
+Name IAEA-Pool
 
 % tolerances:
-tol 1E-4 1E-5
+tol 1E-6 1E-6
 maxit 1000
 
 % (cell length, number of mesh) is given as tupple in sequence
 % cellx left to right
 % celly bottom to top
 
-CellX (7.830776, 100) 
-CellY (7.830776, 2) 
+CellX (18, 18) (30, 30) (30, 30) (18, 18) 
+CellY (18, 25) (25, 25) (25, 25) (18, 18)  
 
 % boundary condition:
 %   B   T   L   R
 
-BC  1   1   1   1
+BC  0   0   0   0
 
 % Quadrature set:
 SN 16
 
 % material and cross section file:
 
-xsfile mini3x3-cartesian.xs
+xsfile iaea_pool.xs
 
 % material correspondig to each pair CellX CellY
 % insert left to right, bottom to top (bottom in 1st line, then 2nd ... the topmost matrials in the last line)
 MatMap
-1 
+5 5 5 5
+5 1 2 5
+5 4 3 5
+5 5 5 5

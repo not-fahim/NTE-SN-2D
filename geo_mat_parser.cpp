@@ -122,6 +122,12 @@ input_class read_input_file()
         {
             parseCoordinates(linestream, input_obj.cellY_vector);
         } 
+        else if(keyword == "refinement")
+        {
+            int value;
+            if(linestream >> value)
+                input_obj.refinement = value;
+        }
         else if(keyword == "BC")
         {
             double value;

@@ -56,7 +56,7 @@ geometry_class::geometry_class(input_class const &input_object)
         cellx_dim = input_object.cellX_vector[cellx].cell_dim;
         x_out = x_in + cellx_dim;
 
-        cell_Nx = input_object.cellX_vector[cellx].mesh_num;
+        cell_Nx = input_object.refinement*input_object.cellX_vector[cellx].mesh_num;
         cell_hx = cellx_dim/cell_Nx;
 
         cell_xi_minus_half = range(x_in, x_out-cell_hx, cell_Nx);
@@ -86,7 +86,7 @@ geometry_class::geometry_class(input_class const &input_object)
         celly_dim = input_object.cellY_vector[celly].cell_dim;
         y_out = y_in + celly_dim;
 
-        cell_Ny = input_object.cellY_vector[celly].mesh_num;
+        cell_Ny = input_object.cellY_vector[celly].mesh_num * input_object.refinement;
         cell_hy = celly_dim/cell_Ny;
 
         cell_yj_minus_half = range(y_in, y_out-cell_hy, cell_Ny);

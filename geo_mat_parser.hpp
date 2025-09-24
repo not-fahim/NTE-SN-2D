@@ -28,7 +28,7 @@ struct input_class
     std::vector<cell_class> cellY_vector;
     std::vector< std::vector<int>> matmap_cell;
     std::vector<double> BC; //BTLR
-    int S_n, max_it;
+    int S_n, max_it, refinement;
     std::vector<mat_class> mat_vector;
     double tol_out, tol_in;
 };
