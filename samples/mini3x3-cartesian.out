@@ -1,0 +1,83 @@
+iteration 	 keff 	 	 error	
+iteration 	 keff 	 	 error	
+1	 	0.0293773	 	-0.970623
+2	 	0.0293756	 	-1.68869e-06
+3	 	0.0293729	 	-2.77063e-06
+4	 	0.0293721	 	-7.41352e-07
+5	 	0.0293719	 	-1.67335e-07
+6	 	0.0293719	 	-3.76252e-08
+7	 	0.0293719	 	-6.87139e-09
+mini3x3-cartesian  delx = 0.195 keff= 0.0293719 with error: -6.87139e-09
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	0.0277931	 	-0.972207
+2	 	0.027792	 	-1.11763e-06
+3	 	0.0277889	 	-3.15039e-06
+4	 	0.027788	 	-9.00488e-07
+5	 	0.0277877	 	-2.21428e-07
+6	 	0.0277877	 	-4.76432e-08
+7	 	0.0277877	 	-9.23827e-09
+mini3x3-cartesian  delx = 0.195 keff= 0.0277877 with error: -9.23827e-09
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	0.0293773	 	-0.970623
+2	 	0.0293756	 	-1.68869e-06
+3	 	0.0293729	 	-2.77063e-06
+4	 	0.0293721	 	-7.41352e-07
+5	 	0.0293719	 	-1.67335e-07
+6	 	0.0293719	 	-3.76252e-08
+7	 	0.0293719	 	-6.87139e-09
+mini3x3-cartesian  delx = 0.195 keff= 0.0293719 with error: -6.87139e-09
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	0.182248	 	-0.817752
+2	 	0.182248	 	1.78864e-10
+mini3x3-cartesian  delx = 0.195 keff= 0.182248 with error: 1.78864e-10
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	0.0298671	 	-0.970133
+2	 	0.0298829	 	1.57964e-05
+3	 	0.0298838	 	9.38155e-07
+4	 	0.0298839	 	5.97654e-08
+5	 	0.0298839	 	3.48673e-09
+mini3x3-cartesian  delx = 0.195 keff= 0.0298839 with error: 3.48673e-09
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	0.027227	 	-0.972773
+2	 	0.0272476	 	2.05188e-05
+3	 	0.027249	 	1.45845e-06
+4	 	0.0272491	 	1.31241e-07
+5	 	0.0272492	 	1.84215e-08
+mini3x3-cartesian  delx = 0.195 keff= 0.0272492 with error: 1.84215e-08
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	0.0293652	 	-0.970635
+2	 	0.0293669	 	1.61057e-06
+3	 	0.0293642	 	-2.68319e-06
+4	 	0.0293634	 	-7.32293e-07
+5	 	0.0293633	 	-1.66986e-07
+6	 	0.0293632	 	-3.75921e-08
+7	 	0.0293632	 	-9.00996e-09
+mini3x3-cartesian  delx = 0.195 keff= 0.0293632 with error: -9.00996e-09
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	0.206354	 	-0.793646
+2	 	0.20635	 	-3.58872e-06
+3	 	0.20635	 	-1.67843e-08
+mini3x3-cartesian  delx = 0.195 keff= 0.20635 with error: -1.67843e-08
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	0.206348	 	-0.793652
+2	 	0.206344	 	-3.87831e-06
+3	 	0.206344	 	1.09523e-08
+mini3x3-cartesian  delx = 0.195 keff= 0.206344 with error: 1.09523e-08
+
+flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script

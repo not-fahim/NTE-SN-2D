@@ -3,7 +3,7 @@
 #include<cmath>
 #include<iomanip>
 #include<fstream>
-#include "PUa-1-0-SL.cpp"
+#include "UAL-2-0-SL.cpp"
 
 
 double intol = 10e-10;
@@ -321,12 +321,8 @@ angular::angular(int N)
             4, 7, 8, 7, 4,
             3, 6, 8, 8, 6, 3,
             2, 5, 6, 7, 6, 5, 2,
-            1, 2, 3, 4, 4, 3, 2, 1 
-        };
+            1, 2, 3, 4, 4, 3, 2, 1 };
 
-        sequence = sequence1;
-        for (int i=0; i<size(sequence);i++)
-            sequence[i]=sequence[i]-1;
 
         vector<double>mu1{  0.13344572,
                             0.39119433,

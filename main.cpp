@@ -1,5 +1,6 @@
 #include <iostream>
 #include<vector>
+#include <cctype>
 #include<cmath>
 #include<iomanip>
 #include<fstream>
@@ -137,11 +138,6 @@ int vector3Dcopy(vector<vector<vector<double>>> &to_vector1, vector<vector<vecto
 
 }
 
-#include <cctype> // Required for std::isalnum
-#include <cmath>  // Required for std::ceil
-
-#include <cctype>
-#include <cmath>
 
 void write_matlab_flux_script(const std::vector<std::vector<std::vector<double>>>& flux, const geometry_class& geometry, const std::string& problem_name)
 {

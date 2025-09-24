@@ -9,3 +9,4 @@ double chi_fuel[2] = {1.0, 0.0};
 double r_c = 7.830776;
 
 double BC[]={1,1,1,0}; //B T L R
+int N = 16;
