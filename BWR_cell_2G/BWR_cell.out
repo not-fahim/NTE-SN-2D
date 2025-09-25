@@ -1,0 +1,26 @@
+iteration 	 keff 	 	 error	
+1	 	1.21247	 	0.212469
+2	 	1.2126	 	0.000133163
+3	 	1.21261	 	8.74986e-06
+4	 	1.21261	 	1.15181e-06
+IAEA-Pool  delx = 0.5 keff= 1.21261 with error: 1.15181e-06
+
+flux distribution is saved in the flux___IAEA-Pool.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21219	 	0.212189
+2	 	1.21231	 	0.000122642
+3	 	1.21232	 	8.55673e-06
+4	 	1.21232	 	1.33181e-06
+5	 	1.21232	 	2.14632e-07
+IAEA-Pool  delx = 0.25 keff= 1.21232 with error: 2.14632e-07
+
+flux distribution is saved in the flux___IAEA-Pool.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21212	 	0.212116
+2	 	1.21224	 	0.000125401
+3	 	1.21225	 	6.42959e-06
+4	 	1.21225	 	1.3675e-06
+5	 	1.21225	 	1.1988e-06
+IAEA-Pool  delx = 0.125 keff= 1.21225 with error: 1.1988e-06
+
+flux distribution is saved in the flux___IAEA-Pool.m and .py file script

@@ -2,17 +2,17 @@ import h5py
 import numpy as np
 
 
-HDF5_FILE_PATH = 'mgxs2g.h5'
+HDF5_FILE_PATH = 'mgxs.h5'
 
 
-OUTPUT_FILE_PATH = 'mini3x3-cartesian.xs'
+OUTPUT_FILE_PATH = 'mini3x3-cartesian-8g.xs'
 
 
 #    Based on the h5dump, have cells "1", "2", and "3".
 material_map = {
-    '4': 'cool',
+    '2': 'cool',
     '1': 'fuel',
-    '2': "gad"
+    '3': "gad"
 }
 
 
@@ -26,7 +26,7 @@ def write_material_block(h5_file, output_file, cell_id, material_name):
     
     # Total cross section (sigma_t)
     try:
-        total_xs = h5_file[f'/material/{cell_id}/total/average'][:]
+        total_xs = h5_file[f'/cell/{cell_id}/total/average'][:]
         total_str = ' '.join(map(str, total_xs))
         output_file.write(f"tot {total_str}\n")
     except KeyError:
@@ -34,7 +34,7 @@ def write_material_block(h5_file, output_file, cell_id, material_name):
 
     # Nu-fission cross section (nu_sigma_f)
     try:
-        nuf_xs = h5_file[f'/material/{cell_id}/nu-fission/average'][:]
+        nuf_xs = h5_file[f'/cell/{cell_id}/nu-fission/average'][:]
         nuf_str = ' '.join(map(str, nuf_xs))
         output_file.write(f"nuf {nuf_str}\n")
     except KeyError:
@@ -42,7 +42,7 @@ def write_material_block(h5_file, output_file, cell_id, material_name):
         
     # Fission spectrum (chi)
     try:
-        chi = h5_file[f'/material/{cell_id}/chi/average'][:]
+        chi = h5_file[f'/cell/{cell_id}/chi/average'][:]
         chi_str = ' '.join(map(str, chi))
         output_file.write(f"chi {chi_str}\n")
     except KeyError:
@@ -51,7 +51,7 @@ def write_material_block(h5_file, output_file, cell_id, material_name):
     # --- Read 2D Dataset (scatter matrix) ---
     try:
         # Note the tab space in 'scatter matrix'
-        scatter_matrix = h5_file[f'/material/{cell_id}/scatter matrix/average'][:]
+        scatter_matrix = h5_file[f'/cell/{cell_id}/scatter matrix/average'][:]
         output_file.write("sca\n")
         for row in scatter_matrix.T:
             row_str = '\t'.join(map(str, row))
