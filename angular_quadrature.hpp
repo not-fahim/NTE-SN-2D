@@ -11,7 +11,6 @@ class angular
     std::vector<double> w;
     int total_num;
     angular(int N);
-    
 };
 
 #endif

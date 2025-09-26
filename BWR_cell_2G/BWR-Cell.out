@@ -6812,3 +6812,276 @@ iteration 	 keff 	 	 error
 BWR-Cell  delx = 0.25 keff= 1.2123 with error: 2.20968e-07
 
 flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21216	 	0.212162
+2	 	1.21229	 	0.000125495
+3	 	1.2123	 	8.73449e-06
+4	 	1.2123	 	1.35081e-06
+5	 	1.2123	 	2.20968e-07
+BWR-Cell  delx = 0.25 keff= 1.2123 with error: 2.20968e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.23054	 	0.230539
+2	 	1.23054	 	6.55591e-07
+BWR-Cell  delx = 1.5 keff= 1.23054 with error: 6.55591e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21422	 	0.214216
+2	 	1.21422	 	3.56246e-06
+3	 	1.21422	 	1.90472e-07
+BWR-Cell  delx = 0.75 keff= 1.21422 with error: 1.90472e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21275	 	0.21275
+2	 	1.21286	 	0.000112435
+3	 	1.21287	 	8.38391e-06
+4	 	1.21287	 	1.08454e-06
+BWR-Cell  delx = 0.375 keff= 1.21287 with error: 1.08454e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21225	 	0.212251
+2	 	1.21237	 	0.000122291
+3	 	1.21238	 	7.76574e-06
+4	 	1.21238	 	1.38537e-06
+5	 	1.21238	 	3.82773e-07
+BWR-Cell  delx = 0.1875 keff= 1.21238 with error: 3.82773e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.23054	 	0.230539
+2	 	1.23054	 	6.55591e-07
+BWR-Cell  delx = 1.5 keff= 1.23054 with error: 6.55591e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.23093	 	0.230935
+2	 	1.23094	 	6.39195e-07
+BWR-Cell  delx = 1.5 keff= 1.23094 with error: 6.39195e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.23093	 	0.230935
+2	 	1.23094	 	6.39195e-07
+BWR-Cell  delx = 1.5 keff= 1.23094 with error: 6.39195e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.23051	 	0.230508
+2	 	1.23051	 	6.52973e-07
+BWR-Cell  delx = 1.5 keff= 1.23051 with error: 6.52973e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21425	 	0.214253
+2	 	1.21426	 	3.8261e-06
+3	 	1.21426	 	2.69119e-07
+BWR-Cell  delx = 0.75 keff= 1.21426 with error: 2.69119e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21278	 	0.212777
+2	 	1.21289	 	0.000109461
+3	 	1.2129	 	8.60719e-06
+4	 	1.2129	 	9.95403e-07
+BWR-Cell  delx = 0.375 keff= 1.2129 with error: 9.95403e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21278	 	0.212777
+2	 	1.21289	 	0.000109461
+3	 	1.2129	 	8.60719e-06
+4	 	1.2129	 	9.95403e-07
+BWR-Cell  delx = 0.375 keff= 1.2129 with error: 9.95403e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21228	 	0.212278
+2	 	1.2124	 	0.000118539
+3	 	1.21241	 	8.37562e-06
+4	 	1.21241	 	1.3208e-06
+5	 	1.21241	 	5.04489e-07
+BWR-Cell  delx = 0.1875 keff= 1.21241 with error: 5.04489e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21228	 	0.212278
+2	 	1.2124	 	0.00011898
+3	 	1.2124	 	4.95076e-06
+4	 	1.2124	 	1.49659e-06
+5	 	1.2124	 	5.21122e-07
+BWR-Cell  delx = 0.1875 keff= 1.2124 with error: 5.21122e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.2122	 	0.212198
+2	 	1.21233	 	0.000126775
+3	 	1.21233	 	4.81101e-06
+4	 	1.21233	 	1.70176e-06
+5	 	1.21233	 	5.1741e-07
+BWR-Cell  delx = 0.1875 keff= 1.21233 with error: 5.1741e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21183	 	0.211831
+2	 	1.21197	 	0.000135105
+3	 	1.21196	 	-1.2312e-06
+4	 	1.21197	 	1.43223e-06
+5	 	1.21197	 	3.06313e-07
+BWR-Cell  delx = 0.1875 keff= 1.21197 with error: 3.06313e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.2122	 	0.212198
+2	 	1.21233	 	0.000126775
+3	 	1.21233	 	4.81101e-06
+4	 	1.21233	 	1.70176e-06
+5	 	1.21233	 	5.1741e-07
+BWR-Cell  delx = 0.1875 keff= 1.21233 with error: 5.1741e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21206	 	0.212059
+2	 	1.2122	 	0.000140114
+3	 	1.2122	 	-2.38115e-06
+4	 	1.2122	 	1.29433e-06
+5	 	1.2122	 	3.10084e-07
+BWR-Cell  delx = 0.09375 keff= 1.2122 with error: 3.10084e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.2122	 	0.212198
+2	 	1.21233	 	0.000126775
+3	 	1.21233	 	4.81101e-06
+BWR-Cell  delx = 0.1875 keff= 1.21233 with error: 4.81101e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21206	 	0.212059
+2	 	1.2122	 	0.000140114
+3	 	1.2122	 	-2.38115e-06
+BWR-Cell  delx = 0.09375 keff= 1.2122 with error: -2.38115e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.2127	 	0.212697
+2	 	1.21281	 	0.000111628
+3	 	1.21281	 	4.66763e-06
+BWR-Cell  delx = 0.375 keff= 1.21281 with error: 4.66763e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21278	 	0.212776
+2	 	1.21289	 	0.000111708
+3	 	1.21289	 	4.62769e-06
+BWR-Cell  delx = 0.375 keff= 1.21289 with error: 4.62769e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21118	 	0.211181
+2	 	1.21167	 	0.000486687
+3	 	1.21177	 	9.7783e-05
+BWR-Cell  delx = 0.1875 keff= 1.21177 with error: 9.7783e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21104	 	0.211037
+2	 	1.21155	 	0.000509381
+3	 	1.21164	 	9.55215e-05
+BWR-Cell  delx = 0.09375 keff= 1.21164 with error: 9.55215e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21074	 	0.210735
+2	 	1.21123	 	0.000489959
+3	 	1.21132	 	9.72711e-05
+BWR-Cell  delx = 0.1875 keff= 1.21132 with error: 9.72711e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21109	 	0.211092
+2	 	1.21161	 	0.000514133
+3	 	1.2117	 	9.63492e-05
+BWR-Cell  delx = 0.1875 keff= 1.2117 with error: 9.63492e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.22932	 	0.229316
+2	 	1.22937	 	5.69478e-05
+BWR-Cell  delx = 1.5 keff= 1.22937 with error: 5.69478e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.22965	 	0.229655
+2	 	1.22971	 	5.74949e-05
+BWR-Cell  delx = 1.5 keff= 1.22971 with error: 5.74949e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.23277	 	0.232773
+2	 	1.23284	 	6.26211e-05
+BWR-Cell  delx = 1.5 keff= 1.23284 with error: 6.26211e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.22965	 	0.229655
+2	 	1.22971	 	5.74949e-05
+BWR-Cell  delx = 1.5 keff= 1.22971 with error: 5.74949e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.22932	 	0.229316
+2	 	1.22937	 	5.69478e-05
+BWR-Cell  delx = 1.5 keff= 1.22937 with error: 5.69478e-05
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.23046	 	0.230464
+2	 	1.23047	 	5.83653e-06
+BWR-Cell  delx = 1.5 keff= 1.23047 with error: 5.83653e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.23058	 	0.230582
+2	 	1.23058	 	5.70076e-07
+BWR-Cell  delx = 1.5 keff= 1.23058 with error: 5.70076e-07
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21415	 	0.214155
+2	 	1.21415	 	-8.53164e-06
+BWR-Cell  delx = 0.75 keff= 1.21415 with error: -8.53164e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.2127	 	0.212697
+2	 	1.21281	 	0.000111628
+3	 	1.21281	 	4.66763e-06
+BWR-Cell  delx = 0.375 keff= 1.21281 with error: 4.66763e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.2122	 	0.212198
+2	 	1.21233	 	0.000126775
+3	 	1.21233	 	4.81101e-06
+BWR-Cell  delx = 0.1875 keff= 1.21233 with error: 4.81101e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21206	 	0.212059
+2	 	1.2122	 	0.000140114
+3	 	1.2122	 	-2.38115e-06
+BWR-Cell  delx = 0.09375 keff= 1.2122 with error: -2.38115e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.21202	 	0.212024
+2	 	1.21217	 	0.00014205
+3	 	1.21216	 	-3.37935e-06
+BWR-Cell  delx = 0.046875 keff= 1.21216 with error: -3.37935e-06
+
+flux distribution is saved in the flux___BWR-Cell.m and .py file script
+iteration 	 keff 	 	 error	

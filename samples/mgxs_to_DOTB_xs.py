@@ -1,49 +1,51 @@
 import h5py
 import numpy as np
 
+cross_section_domain='material'  # could also be 'material'
 
-HDF5_FILE_PATH = 'mgxs.h5'
+HDF5_FILE_PATH = 'mgxs2g.h5'
+OUTPUT_FILE_PATH = 'mini3x3-cartesian-2g.xs'
 
 
-OUTPUT_FILE_PATH = 'mini3x3-cartesian-8g.xs'
-
-
-#    Based on the h5dump, have cells "1", "2", and "3".
+#    Based on the h5dump, have cells or materials "1", "2", and "3".
 material_map = {
-    '2': 'cool',
     '1': 'fuel',
-    '3': "gad"
+    '4': 'cool',
+    '2': "gad"
 }
 
 
 def write_material_block(h5_file, output_file, cell_id, material_name):
-    """Reads all cross sections for a given cell and writes them to the output file."""
+    """
+    Reads all cross sections for a given cell, formats them in scientific
+    notation, and writes them to the output file.
+    """
     
     print(f"Processing material '{material_name}' from cell '{cell_id}'...")
 
-    # material header
+    # Material header
     output_file.write(f"mat {material_name}\n")
     
     # Total cross section (sigma_t)
     try:
-        total_xs = h5_file[f'/cell/{cell_id}/total/average'][:]
-        total_str = ' '.join(map(str, total_xs))
+        total_xs = h5_file[f'/{cross_section_domain}/{cell_id}/total/average'][:]
+        total_str = ' '.join([f'{x:.8e}' for x in total_xs])
         output_file.write(f"tot {total_str}\n")
     except KeyError:
         print(f"  Warning: 'total' cross section not found for cell {cell_id}.")
 
     # Nu-fission cross section (nu_sigma_f)
     try:
-        nuf_xs = h5_file[f'/cell/{cell_id}/nu-fission/average'][:]
-        nuf_str = ' '.join(map(str, nuf_xs))
+        nuf_xs = h5_file[f'/{cross_section_domain}/{cell_id}/nu-fission/average'][:]
+        nuf_str = ' '.join([f'{x:.8e}' for x in nuf_xs])
         output_file.write(f"nuf {nuf_str}\n")
     except KeyError:
         print(f"  Warning: 'nu-fission' cross section not found for cell {cell_id}.")
         
     # Fission spectrum (chi)
     try:
-        chi = h5_file[f'/cell/{cell_id}/chi/average'][:]
-        chi_str = ' '.join(map(str, chi))
+        chi = h5_file[f'/{cross_section_domain}/{cell_id}/chi/average'][:]
+        chi_str = ' '.join([f'{x:.8e}' for x in chi])
         output_file.write(f"chi {chi_str}\n")
     except KeyError:
         print(f"  Warning: 'chi' spectrum not found for cell {cell_id}.")
@@ -51,16 +53,20 @@ def write_material_block(h5_file, output_file, cell_id, material_name):
     # --- Read 2D Dataset (scatter matrix) ---
     try:
         # Note the tab space in 'scatter matrix'
-        scatter_matrix = h5_file[f'/cell/{cell_id}/scatter matrix/average'][:]
+        scatter_matrix = h5_file[f'/{cross_section_domain}/{cell_id}/scatter matrix/average'][:]
+        output_file.write("% rows are to groups and columns are from groups\n")
         output_file.write("sca\n")
+        # Transpose and iterate through columns (which become rows)
         for row in scatter_matrix.T:
-            row_str = '\t'.join(map(str, row))
+            # Format each number in the row with scientific notation (.8e)
+            row_str = '\t'.join([f'{x:.8e}' for x in row])
             output_file.write(f"{row_str}\n")
     except KeyError:
          print(f"  Warning: 'scatter matrix' not found for cell {cell_id}.")
 
     # Add a blank line for separation
     output_file.write("\n")
+
 
 def main():
     """Main function to read HDF5 and generate the materials.in file."""

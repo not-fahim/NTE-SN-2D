@@ -45,7 +45,7 @@ flux_g1 = np.array([
 ])
 
 # Create the plot for this group
-im = axs[0].pcolormesh(X, Y, flux_g1.T, shading='gouraud')
+im = axs[0].pcolormesh(X, Y, flux_g1.T, shading='gouraud' )
 axs[0].set_title('Group 1')
 axs[0].axis('equal')
 fig.colorbar(im, ax=axs[0])

@@ -4,7 +4,7 @@ std::vector<double> range(double min, double max, size_t N)
 {
     //returns a vector of N equally spaced doubles including min  max
     std::vector<double> range;
-    double delta = (max-min)/double(N-1);
+    double delta = (max-min)/double((N>1)? N-1 : 1);
     for(int i=0; i<N; i++) {
         range.push_back(min + i*delta);
     }

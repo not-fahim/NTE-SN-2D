@@ -3,14 +3,18 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: g++.exe build with cpp 14.2.0",
+			"label": "C/C++: Build current solver",
 			"command": "C:\\Program Files\\CodeBlocks\\MinGW\\bin\\g++.exe",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
-				"${file}",
+				"main.cpp",
+				"angular_quadrature.cpp",
+				"geo_mat_parser.cpp",
+				"geometry_class.cpp",
+				"plotting.cpp"
 				"-o",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+				"${fileDirname}\\solver.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
@@ -20,6 +24,7 @@
 			],
 			"group": "build",
 			"detail": "compiler: C:\\Program Files\\CodeBlocks\\MinGW\\bin\\g++.exe"
-		}
+		},
+		
 	]
 }

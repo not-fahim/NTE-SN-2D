@@ -1,0 +1,220 @@
+iteration 	 keff 	 	 error	
+1	 	1.08647	 	0.0864697
+2	 	1.08727	 	0.000796329
+3	 	1.08727	 	-8.93411e-07
+ANL13  delx = 0.118745 keff= 1.08727 with error: -8.93411e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08647	 	0.0864656
+2	 	1.08726	 	0.000798946
+3	 	1.08726	 	-3.16475e-06
+4	 	1.08725	 	-8.62642e-06
+5	 	1.08725	 	-2.01489e-06
+6	 	1.08725	 	-2.21842e-07
+ANL13  delx = 0.0593725 keff= 1.08725 with error: -2.21842e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+iteration 	 keff 	 	 error	
+iteration 	 keff 	 	 error	
+1	 	1.08654	 	0.0865444
+2	 	1.08744	 	0.00089986
+3	 	1.08745	 	1.99657e-06
+4	 	1.08744	 	-8.61743e-06
+5	 	1.08744	 	-2.10555e-06
+6	 	1.08744	 	-2.82458e-07
+ANL13  delx = 0.0593725 keff= 1.08744 with error: -2.82458e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08647	 	0.0864656
+2	 	1.08726	 	0.000798946
+3	 	1.08726	 	-3.16475e-06
+4	 	1.08725	 	-8.62642e-06
+5	 	1.08725	 	-2.01489e-06
+6	 	1.08725	 	-2.21842e-07
+ANL13  delx = 0.0593725 keff= 1.08725 with error: -2.21842e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08635	 	0.0863502
+2	 	1.08715	 	0.000795572
+3	 	1.08714	 	-3.82401e-06
+4	 	1.08713	 	-8.35868e-06
+5	 	1.08713	 	-1.89991e-06
+6	 	1.08713	 	-1.89557e-07
+ANL13  delx = 0.118745 keff= 1.08713 with error: -1.89557e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08635	 	0.0863499
+2	 	1.0871	 	0.000748307
+3	 	1.08712	 	1.99572e-05
+ANL13  delx = 0.118745 keff= 1.08712 with error: 1.99572e-05
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08635	 	0.0863502
+2	 	1.08715	 	0.000795572
+3	 	1.08714	 	-3.82401e-06
+4	 	1.08713	 	-8.35868e-06
+5	 	1.08713	 	-1.89991e-06
+6	 	1.08713	 	-1.89557e-07
+ANL13  delx = 0.118745 keff= 1.08713 with error: -1.89557e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08622	 	0.0862197
+2	 	1.087	 	0.000782443
+3	 	1.087	 	-2.35571e-06
+4	 	1.08699	 	-8.47483e-06
+5	 	1.08699	 	-1.82403e-06
+6	 	1.08699	 	-1.8434e-07
+ANL13  delx = 0.23749 keff= 1.08699 with error: -1.8434e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	nan	 	nan
+2	 	nan	 	nan
+3	 	nan	 	nan
+4	 	nan	 	nan
+5	 	nan	 	nan
+6	 	nan	 	nan
+7	 	nan	 	nan
+8	 	nan	 	nan
+9	 	nan	 	nan
+10	 	nan	 	nan
+11	 	nan	 	nan
+12	 	nan	 	nan
+13	 	nan	 	nan
+14	 	nan	 	nan
+15	 	nan	 	nan
+16	 	nan	 	nan
+17	 	nan	 	nan
+18	 	nan	 	nan
+19	 	nan	 	nan
+20	 	nan	 	nan
+21	 	nan	 	nan
+iteration 	 keff 	 	 error	
+1	 	nan	 	nan
+2	 	nan	 	nan
+3	 	nan	 	nan
+4	 	nan	 	nan
+5	 	nan	 	nan
+6	 	nan	 	nan
+7	 	nan	 	nan
+iteration 	 keff 	 	 error	
+1	 	1.08622	 	0.0862199
+2	 	1.087	 	0.000782445
+3	 	1.087	 	-2.35563e-06
+4	 	1.08699	 	-8.47486e-06
+5	 	1.08699	 	-1.82403e-06
+6	 	1.08699	 	-1.84341e-07
+ANL13  delx = 0.23749 keff= 1.08699 with error: -1.84341e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08635	 	0.0863504
+2	 	1.08715	 	0.000795575
+3	 	1.08714	 	-3.82395e-06
+4	 	1.08713	 	-8.3587e-06
+5	 	1.08713	 	-1.89992e-06
+6	 	1.08713	 	-1.89557e-07
+ANL13  delx = 0.118745 keff= 1.08713 with error: -1.89557e-07
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08635	 	0.0863504
+2	 	1.08715	 	0.000795575
+3	 	1.08714	 	-3.82395e-06
+ANL13  delx = 0.118745 keff= 1.08714 with error: -3.82395e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08622	 	0.0862199
+2	 	1.087	 	0.000782445
+3	 	1.087	 	-2.35563e-06
+ANL13  delx = 0.23749 keff= 1.087 with error: -2.35563e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.09149	 	0.0914863
+2	 	1.09206	 	0.000576853
+3	 	1.09205	 	-1.59582e-05
+4	 	1.09204	 	-6.38117e-06
+ANL13  delx = 0.23749 keff= 1.09204 with error: -6.38117e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.0861	 	0.0860971
+2	 	1.08698	 	0.000883685
+3	 	1.08698	 	2.77936e-06
+ANL13  delx = 0.23749 keff= 1.08698 with error: 2.77936e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08622	 	0.0862199
+2	 	1.087	 	0.000782445
+3	 	1.087	 	-2.35563e-06
+ANL13  delx = 0.23749 keff= 1.087 with error: -2.35563e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08619	 	0.0861891
+2	 	1.08698	 	0.000790544
+3	 	1.08699	 	7.51578e-06
+ANL13  delx = 0.23749 keff= 1.08699 with error: 7.51578e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08622	 	0.0862199
+2	 	1.087	 	0.000782445
+3	 	1.087	 	-2.35563e-06
+ANL13  delx = 0.23749 keff= 1.087 with error: -2.35563e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.0861	 	0.0860971
+2	 	1.08698	 	0.000883685
+3	 	1.08698	 	2.77936e-06
+ANL13  delx = 0.23749 keff= 1.08698 with error: 2.77936e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.09149	 	0.0914863
+2	 	1.09206	 	0.000576853
+3	 	1.09205	 	-1.59582e-05
+4	 	1.09204	 	-6.38117e-06
+ANL13  delx = 0.23749 keff= 1.09204 with error: -6.38117e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08876	 	0.0887563
+2	 	1.08931	 	0.000557487
+3	 	1.0893	 	-1.70537e-05
+4	 	1.08929	 	-6.26809e-06
+ANL13  delx = 0.47498 keff= 1.08929 with error: -6.26809e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08342	 	0.083424
+2	 	1.08417	 	0.000745709
+3	 	1.08416	 	-7.20729e-06
+ANL13  delx = 0.47498 keff= 1.08416 with error: -7.20729e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08342	 	0.083424
+2	 	1.08417	 	0.000745709
+3	 	1.08416	 	-7.20729e-06
+ANL13  delx = 0.47498 keff= 1.08416 with error: -7.20729e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
+iteration 	 keff 	 	 error	
+1	 	1.08635	 	0.0863502
+2	 	1.08715	 	0.000795572
+3	 	1.08714	 	-3.82401e-06
+ANL13  delx = 0.118745 keff= 1.08714 with error: -3.82401e-06
+
+flux distribution is saved in the flux___ANL13.m and .py file script
