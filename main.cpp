@@ -15,6 +15,28 @@ using namespace std;
 double intol, outtol;
 int max_it;
 
+void print_banner(ofstream &outputfile) {
+    // Copy and paste the text from one of the banners below into this string
+    std::string banner_text = R"(
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    )";
+    outputfile << banner_text << std::endl;
+}
+
 template <typename t>
 int set_zero(vector<vector<t>> &vector1)
 {
@@ -65,11 +87,8 @@ t sum(vector<vector<t>> const &vector1)
 double L1error(vector<vector<vector<double>>> const &vector1, vector<vector<vector<double>>> const &vector2)
 {
 
-        double avg = 0.;
         double abs_max=0;
         double a;
-
-        avg = avg / (size(vector2) * size(vector2[0]));
 
         for (int i=0; i< size(vector1); i++)
         {
@@ -78,12 +97,12 @@ double L1error(vector<vector<vector<double>>> const &vector1, vector<vector<vect
                 for(int k=0; k<size(vector1[i][j]); k++)
                 {
                     if(i==0 && j==0 && k==0) 
-                        abs_max = (vector1[i][j][k] - vector2[i][j][k]);
+                        abs_max = abs(vector1[i][j][k] - vector2[i][j][k]);
                 
                     a=abs(vector1[i][j][k] - vector2[i][j][k]);
 
                     if(a>abs_max) 
-                        abs_max = a;
+                        abs_max = a; //inf norm
                 } 
             }
         }
@@ -410,7 +429,9 @@ double sum_fission_rate(vector<vector<vector<double>>> const &flux_g_ij, geometr
 
 int main()
 {
+
     input_class input_object = read_input_file();
+    print_input_data(input_object);
     intol = input_object.tol_in;
     outtol = input_object.tol_out;
     max_it = input_object.max_it;
@@ -445,8 +466,11 @@ int main()
     int src_it = 0;
     int total_src_it = 0;
     double scatter_density = 0;
-    outputfile<<"iteration \t keff \t \t error\t"<<endl;
-    cout<<"iteration \t keff \t \t error\t"<<endl;
+    print_banner(outputfile);
+    outputfile<<name<<"\t"<<geometry.groups<<" group"<< endl;
+    outputfile<<"S-"<<input_object.S_n<< "\t quad set, \t mesh refinement: "<<input_object.refinement<<endl <<endl;
+    outputfile<<"iteration \t keff \t \t error \t iteration "<<endl;
+    cout<<"iteration \t keff \t \t error \t iteration"<<endl;
 
     do //outer iteration
     {
@@ -486,8 +510,8 @@ int main()
         keff = keff_old * sum_fission_rate(flux_g_ij, geometry)/sum_fission_rate(flux_g_old, geometry);
         vector3Dcopy(flux_g_old, flux_g_ij);
         out_it +=1;
-        outputfile<<out_it<<"\t \t"<<keff<<"\t \t"<<keff-keff_old<<endl;
-        cout<<out_it<<"\t"<<keff<<"\t \t"<<keff-keff_old<<endl;
+        outputfile<<out_it<<"\t \t"<<keff<<"\t \t"<<(keff-keff_old)/keff<< "\t \t"<< src_it<<endl;
+        cout<<out_it<<"\t"<<keff<<"\t \t"<<(keff-keff_old)/keff<<"\t \t"<< src_it <<endl;
 
     }while(!is_keff_converged(keff_old, keff));
 
@@ -497,9 +521,10 @@ int main()
 
     if (outputfile.is_open()) 
     {
-        outputfile<<name<<"  delx = "<< geometry.delx_i[0] << " keff= " << keff << " with error: "<< keff-keff_old;
-        outputfile<<endl<<endl;
-        outputfile<< "flux distribution is saved in the flux___"<<name<<".m and .py file script"<< endl;
+        outputfile<<name<<"  refinement = "<< input_object.refinement<<" S-"<<input_object.S_n << " keff= " << keff ;
+        outputfile<<endl;
+        outputfile<< "flux distribution is saved in the flux_"<<name<<".m and .py file script"<< endl;
+        outputfile<<"--- End of calculation ---"<<endl<<endl;
     }
 
     else 

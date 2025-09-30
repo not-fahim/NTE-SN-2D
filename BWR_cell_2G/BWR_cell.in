@@ -8,8 +8,8 @@
 Name BWR-Cell
 
 % tolerances:
-tol 1E-6 1E-5
-maxit 1000
+tol 1E-7 1E-5
+maxit 100
 
 % (cell length, number of mesh) is given as tupple in sequence
 % cellx left to right
@@ -17,7 +17,7 @@ maxit 1000
 
 CellX (1.5, 1) (6.4, 1) (1.0, 1)
 CellY (1.5, 1) (6.4, 1) (1.0, 1) 
-refinement 32
+refinement 64
 
 % boundary condition:
 %   B   T   L   R
@@ -25,7 +25,7 @@ refinement 32
 BC  1   1   1   1
 
 % Quadrature set:
-SN 8
+SN 16
 
 % material and cross section file:
 

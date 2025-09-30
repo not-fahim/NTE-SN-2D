@@ -9,15 +9,17 @@ Name mini3x3-cartesian
 
 % tolerances:
 % intol outtol
-tol 1E-6 1E-6
-maxit 2500
+tol 1E-7 1E-5
+maxit 100
 
 % (cell length, number of mesh) is given as tupple in sequence
 % cellx left to right
 % celly bottom to top
 
-CellX (0.39, 2) (0.52, 4) (0.74, 4) (0.52, 4) (0.74, 4) (0.52, 4) (0.39, 2) 
-CellY (0.39, 2) (0.52, 4) (0.74, 4) (0.52, 4) (0.74, 4) (0.52, 4) (0.39, 2) 
+CellX (0.39, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.39, 1) 
+CellY (0.39, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.39, 1) 
+refinement 64
+
 % boundary condition:
 %   B   T   L   R
 
@@ -28,7 +30,7 @@ SN 16
 
 % material and cross section file:
 
-xsfile mini3x3-cartesian.xs
+xsfile mini3x3-cartesian-8g.xs
 
 % material correspondig to each pair CellX CellY
 % insert left to right, bottom to top (bottom in 1st line, then 2nd ... the topmost matrials in the last line)

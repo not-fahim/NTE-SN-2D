@@ -1,0 +1,36 @@
+
+%input file for DOTB
+%Discrete Ordinates with Two BrainCells
+
+
+% name of the problem:
+
+Name UAL-2-0-SL
+
+% tolerances:
+tol 1E-4 1E-5
+maxit 1000
+
+% (cell length, number of mesh) is given as tupple in sequence
+% cellx left to right
+% celly bottom to top
+
+CellX (7.830776, 100) 
+CellY (7.830776, 2) 
+
+% boundary condition:
+%   B   T   L   R
+
+BC  1   1   1   1
+
+% Quadrature set:
+SN 16
+
+% material and cross section file:
+
+xsfile mini3x3-cartesian.xs
+
+% material correspondig to each pair CellX CellY
+% insert left to right, bottom to top (bottom in 1st line, then 2nd ... the topmost matrials in the last line)
+MatMap
+1 

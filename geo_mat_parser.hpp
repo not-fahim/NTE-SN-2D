@@ -39,5 +39,6 @@ void parseCoordinates( std::stringstream& ss,  std::vector<cell_class>& targetVe
 std::vector<mat_class> read_material_input(std::string filename);
 void print_input_data(const input_class& data);
 
+
 #endif
 

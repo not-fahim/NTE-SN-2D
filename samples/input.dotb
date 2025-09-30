@@ -1,7 +1,0 @@
-% global input file for DOTB
-% Discrete Ordinates with Two BrainCells
-% input file for problem
-% the cross section file is declard inside the problem input file
-
-
-problem mini3x3-cartesian.in

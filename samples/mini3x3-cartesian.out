@@ -1,83 +1,759 @@
-iteration 	 keff 	 	 error	
-iteration 	 keff 	 	 error	
-1	 	0.0293773	 	-0.970623
-2	 	0.0293756	 	-1.68869e-06
-3	 	0.0293729	 	-2.77063e-06
-4	 	0.0293721	 	-7.41352e-07
-5	 	0.0293719	 	-1.67335e-07
-6	 	0.0293719	 	-3.76252e-08
-7	 	0.0293719	 	-6.87139e-09
-mini3x3-cartesian  delx = 0.195 keff= 0.0293719 with error: -6.87139e-09
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____    __  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	2 group
+S-4quad set, mesh refinement: 8
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
 iteration 	 keff 	 	 error	
-1	 	0.0277931	 	-0.972207
-2	 	0.027792	 	-1.11763e-06
-3	 	0.0277889	 	-3.15039e-06
-4	 	0.027788	 	-9.00488e-07
-5	 	0.0277877	 	-2.21428e-07
-6	 	0.0277877	 	-4.76432e-08
-7	 	0.0277877	 	-9.23827e-09
-mini3x3-cartesian  delx = 0.195 keff= 0.0277877 with error: -9.23827e-09
+1	 	0.740927	 	-0.259073
+2	 	0.741143	 	0.000215907
+3	 	0.741145	 	1.78544e-06
+mini3x3-cartesian  delx = 0.04875 keff= 0.741145 with error: 1.78544e-06
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____    __  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	2 group
+S-8quad set, mesh refinement: 8
+
 iteration 	 keff 	 	 error	
-1	 	0.0293773	 	-0.970623
-2	 	0.0293756	 	-1.68869e-06
-3	 	0.0293729	 	-2.77063e-06
-4	 	0.0293721	 	-7.41352e-07
-5	 	0.0293719	 	-1.67335e-07
-6	 	0.0293719	 	-3.76252e-08
-7	 	0.0293719	 	-6.87139e-09
-mini3x3-cartesian  delx = 0.195 keff= 0.0293719 with error: -6.87139e-09
+1	 	0.737003	 	-0.262997
+2	 	0.737234	 	0.000230565
+3	 	0.737236	 	2.00074e-06
+mini3x3-cartesian  refinement = 8 keff= 0.737236
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	2 group
+S-6	 quad set, 	 mesh refinement: 8
+
 iteration 	 keff 	 	 error	
-1	 	0.182248	 	-0.817752
-2	 	0.182248	 	1.78864e-10
-mini3x3-cartesian  delx = 0.195 keff= 0.182248 with error: 1.78864e-10
+1	 	0.737672	 	-0.262328
+2	 	0.737902	 	0.000230203
+3	 	0.737904	 	1.97347e-06
+mini3x3-cartesian  refinement = 8 keff= 0.737904
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	2 group
+S-12	 quad set, 	 mesh refinement: 8
+
 iteration 	 keff 	 	 error	
-1	 	0.0298671	 	-0.970133
-2	 	0.0298829	 	1.57964e-05
-3	 	0.0298838	 	9.38155e-07
-4	 	0.0298839	 	5.97654e-08
-5	 	0.0298839	 	3.48673e-09
-mini3x3-cartesian  delx = 0.195 keff= 0.0298839 with error: 3.48673e-09
+1	 	0.736495	 	-0.263505
+2	 	0.736733	 	0.00023844
+3	 	0.736735	 	1.98442e-06
+mini3x3-cartesian  refinement = 8 keff= 0.736735
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	2 group
+S-16	 quad set, 	 mesh refinement: 8
+
 iteration 	 keff 	 	 error	
-1	 	0.027227	 	-0.972773
-2	 	0.0272476	 	2.05188e-05
-3	 	0.027249	 	1.45845e-06
-4	 	0.0272491	 	1.31241e-07
-5	 	0.0272492	 	1.84215e-08
-mini3x3-cartesian  delx = 0.195 keff= 0.0272492 with error: 1.84215e-08
+1	 	0.736364	 	-0.263636
+2	 	0.736606	 	0.000241861
+3	 	0.736608	 	1.96005e-06
+mini3x3-cartesian  refinement = 8 keff= 0.736608
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 8
+
 iteration 	 keff 	 	 error	
-1	 	0.0293652	 	-0.970635
-2	 	0.0293669	 	1.61057e-06
-3	 	0.0293642	 	-2.68319e-06
-4	 	0.0293634	 	-7.32293e-07
-5	 	0.0293633	 	-1.66986e-07
-6	 	0.0293632	 	-3.75921e-08
-7	 	0.0293632	 	-9.00996e-09
-mini3x3-cartesian  delx = 0.195 keff= 0.0293632 with error: -9.00996e-09
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 8
+
 iteration 	 keff 	 	 error	
-1	 	0.206354	 	-0.793646
-2	 	0.20635	 	-3.58872e-06
-3	 	0.20635	 	-1.67843e-08
-mini3x3-cartesian  delx = 0.195 keff= 0.20635 with error: -1.67843e-08
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-4	 quad set, 	 mesh refinement: 8
+
 iteration 	 keff 	 	 error	
-1	 	0.206348	 	-0.793652
-2	 	0.206344	 	-3.87831e-06
-3	 	0.206344	 	1.09523e-08
-mini3x3-cartesian  delx = 0.195 keff= 0.206344 with error: 1.09523e-08
+1	 	0.747674	 	-0.252326
+2	 	0.747677	 	3.17901e-06
+mini3x3-cartesian  refinement = 8 keff= 0.747677
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
 
-flux distribution is saved in the flux___mini3x3-cartesian.m and .py file script
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-6	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error	
+1	 	0.745644	 	-0.254356
+2	 	0.745652	 	7.59876e-06
+3	 	0.745652	 	3.03346e-07
+mini3x3-cartesian  refinement = 8 keff= 0.745652
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-8	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error	
+1	 	0.743359	 	-0.256641
+2	 	0.743368	 	9.39181e-06
+3	 	0.743368	 	2.18988e-07
+mini3x3-cartesian  refinement = 8 keff= 0.743368
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-12	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error	
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error	
+1	 	0.742371	 	-0.257629
+2	 	0.742385	 	1.46867e-05
+1	 	0.742065	 	-0.257935
+3	 	0.742386	 	2.25606e-07
+mini3x3-cartesian  refinement = 8 keff= 0.742386
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+2	 	0.742082	 	1.63501e-05
+3	 	0.742082	 	2.18315e-07
+mini3x3-cartesian  refinement = 8 keff= 0.742082
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 16
+
+iteration 	 keff 	 	 error	
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 2
+
+iteration 	 keff 	 	 error	
+1	 	0.795375	 	-0.257268
+2	 	0.795398	 	2.77633e-05
+3	 	0.795398	 	2.10944e-07
+mini3x3-cartesian  refinement = 2 S-16 keff= 0.795398
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 4
+
+iteration 	 keff 	 	 error	
+1	 	0.754135	 	-0.326023
+2	 	0.754154	 	2.49112e-05
+3	 	0.754154	 	2.6953e-07
+mini3x3-cartesian  refinement = 4 S-16 keff= 0.754154
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 16
+
+iteration 	 keff 	 	 error	
+1	 	0.740922	 	-0.34967
+2	 	0.740939	 	2.36581e-05
+3	 	0.740939	 	2.94143e-07
+mini3x3-cartesian  refinement = 16 S-16 keff= 0.740939
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 16
+
+iteration 	 keff 	 	 error	
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 16
+
+iteration 	 keff 	 	 error	
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.741948	 	-0.347804	 src_it
+2	 	0.742082	 	0.00018069	 src_it
+3	 	0.742082	 	4.14947e-07	 src_it
+mini3x3-cartesian  refinement = 8 S-16 keff= 0.742082
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 4
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.753995	 	-0.326269	 src_it
+2	 	0.754153	 	0.00021023	 src_it
+3	 	0.754154	 	5.14563e-07	 src_it
+mini3x3-cartesian  refinement = 4 S-16 keff= 0.754154
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-4	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.747552	 	-0.337699	 src_it
+2	 	0.747676	 	0.000166121	 src_it
+3	 	0.747678	 	2.85447e-06	 src_it
+mini3x3-cartesian  refinement = 8 S-4 keff= 0.747678
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-8	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.74324	 	-0.345461	 src_it
+2	 	0.743367	 	0.000171652	 src_it
+3	 	0.743368	 	1.43152e-06	 src_it
+mini3x3-cartesian  refinement = 8 S-8 keff= 0.743368
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-12	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.742253	 	-0.34725	 src_it
+2	 	0.742385	 	0.000178822	 src_it
+3	 	0.742386	 	2.93997e-07	 src_it
+mini3x3-cartesian  refinement = 8 S-12 keff= 0.742386
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-12	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.742253	 	-0.34725	 	101
+2	 	0.742385	 	0.000178822	 	101
+3	 	0.742386	 	2.93997e-07	 	101
+mini3x3-cartesian  refinement = 8 S-12 keff= 0.742386
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-12	 quad set, 	 mesh refinement: 32
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.741108	 	-0.34933	 	101
+2	 	0.74124	 	0.000177903	 	101
+3	 	0.741241	 	4.68614e-07	 	101
+mini3x3-cartesian  refinement = 32 S-12 keff= 0.741241
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 32
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.740759	 	-0.349967	 	101
+2	 	0.740892	 	0.000179728	 	101
+3	 	0.740892	 	5.87427e-07	 	101
+mini3x3-cartesian  refinement = 32 S-16 keff= 0.740892
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 64
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	0.740752	 	-0.34998	 	101
+2	 	0.740885	 	0.000179793	 	101
+3	 	0.740885	 	4.41984e-07	 	101
+mini3x3-cartesian  refinement = 64 S-16 keff= 0.740885
+flux distribution is saved in the flux_mini3x3-cartesian.m and .py file script
+--- End of calculation ---
+
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 64
+
+iteration 	 keff 	 	 error 	 iteration 
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+mini3x3-cartesian	8 group
+S-16	 quad set, 	 mesh refinement: 64
+
+iteration 	 keff 	 	 error 	 iteration 
