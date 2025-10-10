@@ -359,3 +359,32 @@ BWR-Cell  refinement = 64 S-16 keff= 1.21223
 flux distribution is saved in the flux_BWR-Cell.m and .py file script
 --- End of calculation ---
 
+
+**************************************************
+*         .-~*~~~*~-.                           *
+*        .-~~~~~~~~~-.                           *
+*       /  X       X  \                          *
+*      |    .-----.    |                         *
+*       \  '_______'  /                          *
+*        `-.........-'                           *
+* *  ____   ___  ____ ____                       *
+*   |  _ \ / _ \_   _| __ )                      *
+*   | | | | | | || | |  _ \                      *
+*   | |_| | |_| || | | |_) |                     *
+*   |____/ \___/ |_| |____/                      *
+* *
+*   Discrete Ordinate with Two Braincells        *
+**************************************************
+    
+BWR-Cell	2 group
+S-4	 quad set, 	 mesh refinement: 4
+
+iteration 	 keff 	 	 error 	 iteration 
+1	 	1.1971	 	0.164651	 	101
+2	 	1.21226	 	0.0125016	 	101
+3	 	1.21249	 	0.000191674	 	101
+4	 	1.2125	 	2.75741e-06	 	50
+BWR-Cell  refinement = 4 S-4 keff= 1.2125
+flux distribution is saved in the flux_BWR-Cell.m and .py file script
+--- End of calculation ---
+

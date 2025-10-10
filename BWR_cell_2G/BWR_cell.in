@@ -17,7 +17,7 @@ maxit 100
 
 CellX (1.5, 1) (6.4, 1) (1.0, 1)
 CellY (1.5, 1) (6.4, 1) (1.0, 1) 
-refinement 64
+refinement 4
 
 % boundary condition:
 %   B   T   L   R
@@ -25,14 +25,14 @@ refinement 64
 BC  1   1   1   1
 
 % Quadrature set:
-SN 16
+SN 4
 
 % material and cross section file:
 
 xsfile BWR_cell.xs
 
 % material correspondig to each pair CellX CellY
-% insert left to right, bottom to top (bottom in 1st line, then 2nd ... the topmost matrials in the last line)
+% insert left to right, top to bottom, parser does the flipping
 MatMap
 2 2 2
 2 1 2

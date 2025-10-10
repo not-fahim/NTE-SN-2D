@@ -161,6 +161,7 @@ input_class read_input_file()
                     input_obj.matmap_cell.push_back(row);
                 }
             }
+            std::reverse(input_obj.matmap_cell.begin(), input_obj.matmap_cell.end());
         }
     }
     inputFile.close();
@@ -206,12 +207,12 @@ std::vector<mat_class> read_material_input(std::string filename)
             mat.name=keyword;
             //found a material and now evaluate the XS
             string matline;
-            while(getline(inputfile, matline) && !matline.empty())
+            while(getline(inputfile, matline) )
             {
 
                 stringstream matstream(matline);
                 matstream >> keyword;
-                if(keyword[0] == '%')
+                if(keyword[0] == '%' || matline.empty())
                     continue;
 
                 else if(keyword == "tot")

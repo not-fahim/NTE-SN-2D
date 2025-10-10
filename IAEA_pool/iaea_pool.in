@@ -25,16 +25,16 @@ refinement 16;
 BC  0   0   0   0
 
 % Quadrature set:
-SN 16
+SN 4
 
 % material and cross section file:
 
 xsfile iaea_pool.xs
 
 % material correspondig to each pair CellX CellY
-% insert left to right, bottom to top (bottom in 1st line, then 2nd ... the topmost matrials in the last line)
+% insert left to right, top to bottom, parser does the flipping
 MatMap
 5 5 5 5
-5 1 2 5
 5 4 3 5
+5 1 2 5
 5 5 5 5

@@ -467,9 +467,10 @@ int main()
     int total_src_it = 0;
     double scatter_density = 0;
     print_banner(outputfile);
+    outputfile << std::fixed << std::setprecision(8);
     outputfile<<name<<"\t"<<geometry.groups<<" group"<< endl;
     outputfile<<"S-"<<input_object.S_n<< "\t quad set, \t mesh refinement: "<<input_object.refinement<<endl <<endl;
-    outputfile<<"iteration \t keff \t \t error \t iteration "<<endl;
+    outputfile<<"iteration \t keff \t \t error \t \t iteration "<<endl;
     cout<<"iteration \t keff \t \t error \t iteration"<<endl;
 
     do //outer iteration
@@ -513,7 +514,7 @@ int main()
         outputfile<<out_it<<"\t \t"<<keff<<"\t \t"<<(keff-keff_old)/keff<< "\t \t"<< src_it<<endl;
         cout<<out_it<<"\t"<<keff<<"\t \t"<<(keff-keff_old)/keff<<"\t \t"<< src_it <<endl;
 
-    }while(!is_keff_converged(keff_old, keff));
+    }while(!is_keff_converged(keff_old, keff) );
 
     cout<<"\n ---outer iteration done---\n keff: "<<keff << " outer iteration: "<< out_it <<" source iteration: " << total_src_it << endl;
     cout<<endl<<endl;

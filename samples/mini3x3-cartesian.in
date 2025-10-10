@@ -9,8 +9,8 @@ Name mini3x3-cartesian
 
 % tolerances:
 % intol outtol
-tol 1E-7 1E-5
-maxit 100
+tol 1E-6 1E-6
+maxit 99
 
 % (cell length, number of mesh) is given as tupple in sequence
 % cellx left to right
@@ -18,7 +18,7 @@ maxit 100
 
 CellX (0.39, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.39, 1) 
 CellY (0.39, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.39, 1) 
-refinement 64
+refinement 8
 
 % boundary condition:
 %   B   T   L   R
