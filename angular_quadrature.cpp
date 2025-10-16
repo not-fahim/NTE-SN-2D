@@ -152,3 +152,28 @@ angular::angular(int N)
 
     total_num = std::size(sequence);
 }
+
+void angular::print_quadrature_card() {
+    // Set precision for floating point output
+    std::cout << std::fixed << std::setprecision(8);
+
+    // Print the header line of the card
+    std::cout << total_num << " #S" << static_cast<int>(mu.size() * 2) << "(4th card) directions in the quadrature set" << std::endl;
+
+    // Iterate through all directions in the octant
+    for (int k = 0; k < total_num; k++) {
+        // Get the mu and eta direction cosines for the current direction k.
+        // The values are looked up from the base 'mu' vector using the pre-computed sequences.
+        double mu_val = mu[mu_sequence[k]];
+        double eta_val = mu[eta_sequence[k]];
+
+        // Get the weight for the current direction k.
+        // The index is retrieved from 'sequence', and the level weight is retrieved from 'w'.
+        // For this type of set, the individual direction weight is the level weight divided by 4.
+        double weight_val = w[sequence[k]] / 4.0;
+
+        // Print the formatted line for the current direction
+        std::cout << mu_val << " " << eta_val << " " << weight_val
+                  << " #(5th card) angular quadrature data for direction " << k + 1 << std::endl;
+    }
+}

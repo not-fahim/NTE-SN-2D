@@ -438,7 +438,7 @@ int main()
 
     //form angle
     angular angle(input_object.S_n);
-
+    angle.print_quadrature_card();
     //form geometr_n
     geometry_class geometry(input_object);
 
@@ -469,6 +469,7 @@ int main()
     print_banner(outputfile);
     outputfile << std::fixed << std::setprecision(8);
     outputfile<<name<<"\t"<<geometry.groups<<" group"<< endl;
+    outputfile<<"XS file: "<<input_object.xsfile<<endl;
     outputfile<<"S-"<<input_object.S_n<< "\t quad set, \t mesh refinement: "<<input_object.refinement<<endl <<endl;
     outputfile<<"iteration \t keff \t \t error \t \t iteration "<<endl;
     cout<<"iteration \t keff \t \t error \t iteration"<<endl;
