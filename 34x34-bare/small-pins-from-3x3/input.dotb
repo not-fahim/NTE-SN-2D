@@ -4,4 +4,4 @@
 % the cross section file is declard inside the problem input file
 
 
-problem mini3x3-cartesian.in
+problem 34x34-bare.in

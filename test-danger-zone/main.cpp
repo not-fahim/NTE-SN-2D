@@ -9,6 +9,7 @@
 #include "angular_quadrature.hpp"
 #include "geo_mat_parser.hpp"
 #include "plotting.hpp"
+#include "output_handling.hpp"
 
 using namespace std;
 
@@ -520,6 +521,7 @@ int main()
     cout<<"\n ---outer iteration done---\n keff: "<<keff << " outer iteration: "<< out_it <<" source iteration: " << total_src_it << endl;
     cout<<endl<<endl;
     
+    write_flux_output(input_object, geometry, flux_g_ij);
 
     if (outputfile.is_open()) 
     {

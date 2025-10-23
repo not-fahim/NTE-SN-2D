@@ -16,9 +16,9 @@ maxit 19
 % cellx left to right
 % celly bottom to top
 
-CellX (0.37, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.37, 1) 
-CellY (0.37, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.37, 1) 
-refinement 8
+CellX (0.39, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.39, 1) 
+CellY (0.39, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.74, 1) (0.52, 1) (0.39, 1) 
+refinement 16
 
 % boundary condition:
 %   B   T   L   R
@@ -26,7 +26,7 @@ refinement 8
 BC  1   1   1   1
 
 % Quadrature set:
-SN 16
+SN 12
 
 % material and cross section file:
 
