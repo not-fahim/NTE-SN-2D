@@ -12,7 +12,7 @@
 				"angular_quadrature.cpp",
 				"geo_mat_parser.cpp",
 				"geometry_class.cpp",
-				"plotting.cpp"
+				"output_handling.cpp",
 				"-o",
 				"${fileDirname}\\solver.exe"
 			],

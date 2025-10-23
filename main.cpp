@@ -8,7 +8,6 @@
 #include "geometry_class.hpp"
 #include "angular_quadrature.hpp"
 #include "geo_mat_parser.hpp"
-#include "plotting.hpp"
 
 using namespace std;
 
@@ -535,8 +534,6 @@ int main()
         return 1;
     }
     outputfile.close();
-    write_matlab_flux_script(flux_g_ij, geometry, name);
-    write_python_notebook_script(flux_g_ij, geometry, name);
     return 0;
 
 }
