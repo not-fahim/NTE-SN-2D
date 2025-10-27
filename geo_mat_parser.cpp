@@ -114,6 +114,34 @@ input_class read_input_file()
             if(linestream >> value)
                 input_obj.max_it = value;
         }
+        if(keyword=="pincalc")
+        {
+            string value;
+            if(linestream >> value)
+            {
+                if(value == "true")
+                {
+                    input_obj.pin_calc = true;
+                }
+                else if(value == "false")
+                {
+                    input_obj.pin_calc = false;
+                }
+            }
+        }
+        else if(keyword == "pinpitch" && input_obj.pin_calc==true) 
+        {
+            double value;
+            if(linestream >> value)
+                input_obj.pin_pitch = value;
+        }
+        else if(keyword == "pins" && input_obj.pin_calc==true) 
+        {
+            int value;
+            while(linestream >> value)
+                input_obj.pin_num.push_back(value);
+        }
+
         else if (keyword == "CellX") 
         {
             parseCoordinates(linestream, input_obj.cellX_vector);

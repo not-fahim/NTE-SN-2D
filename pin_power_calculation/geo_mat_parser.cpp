@@ -114,6 +114,18 @@ input_class read_input_file()
             if(linestream >> value)
                 input_obj.max_it = value;
         }
+        else if(keyword == "pinpitch") 
+        {
+            double value;
+            if(linestream >> value)
+                input_obj.pin_pitch = value;
+        }
+        else if(keyword == "pins") 
+        {
+            int value;
+            while(linestream >> value)
+                input_obj.pin_dim.push_back(value);
+        }
         else if (keyword == "CellX") 
         {
             parseCoordinates(linestream, input_obj.cellX_vector);

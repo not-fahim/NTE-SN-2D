@@ -8,33 +8,12 @@
 #include "geometry_class.hpp"
 #include "angular_quadrature.hpp"
 #include "geo_mat_parser.hpp"
+#include "output_handling.hpp"
 
 using namespace std;
 
 double intol, outtol;
 int max_it;
-
-void print_banner(ofstream &outputfile) {
-    // Copy and paste the text from one of the banners below into this string
-    std::string banner_text = R"(
-**************************************************
-*         .-~*~~~*~-.                           *
-*        .-~~~~~~~~~-.                           *
-*       /  X       X  \                          *
-*      |    .-----.    |                         *
-*       \  '_______'  /                          *
-*        `-.........-'                           *
-* *  ____   ___  ____ ____                       *
-*   |  _ \ / _ \_   _| __ )                      *
-*   | | | | | | || | |  _ \                      *
-*   | |_| | |_| || | | |_) |                     *
-*   |____/ \___/ |_| |____/                      *
-* *
-*   Discrete Ordinate with Two Braincells        *
-**************************************************
-    )";
-    outputfile << banner_text << std::endl;
-}
 
 template <typename t>
 int set_zero(vector<vector<t>> &vector1)
@@ -518,7 +497,7 @@ int main()
 
     cout<<"\n ---outer iteration done---\n keff: "<<keff << " outer iteration: "<< out_it <<" source iteration: " << total_src_it << endl;
     cout<<endl<<endl;
-    
+    write_flux_output(input_object, geometry, flux_g_ij);
 
     if (outputfile.is_open()) 
     {

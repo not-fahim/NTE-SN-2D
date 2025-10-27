@@ -26,6 +26,9 @@ struct mat_class
 struct input_class
 {
     std::string name, xsfile;
+    bool pin_calc = false;
+    std::vector<int> pin_num;;
+    double pin_pitch=0.0;
     std::vector<cell_class> cellX_vector;
     std::vector<cell_class> cellY_vector;
     std::vector< std::vector<int>> matmap_cell;

@@ -10,9 +10,14 @@ Name 34x34-Bare-3x3samepinxs
 tol 1.0E-6 1.0E-6
 maxit 19
 
+
 % number of pins in 
+% this will not be used by the solver. the pin power calculator will use this.
+% if the pincalc flag is not included the solver will igonre the pins and pinpitch and will not write them in the output
+pincalc true
 %       x   y
-pins    34  34   
+pins    34  34  
+pinpitch    1.26
 
 % (cell_dimensino, mesh_num in each cell) is given as tupple in sequence
 % cellx left to right
@@ -28,8 +33,7 @@ refinement 2
 BC  0   0   0   0
 
 % Quadrature set:
-SN 6
-
+SN 2
 % material and cross section file:
 
 xsfile mini3x3-largepins-2g.xs

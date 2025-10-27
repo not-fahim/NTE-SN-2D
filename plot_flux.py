@@ -142,7 +142,7 @@ def plot_fluxes(x_mid, y_mid, fluxes_dict, basename="flux_plot"):
     plt.tight_layout()
     
     savename = f"{basename}_flux.png"
-    plt.savefig(savename, dpi=300)
+    plt.savefig(savename, dpi=600)
     print(f"Successfully saved plot to {savename}")
     
     # Show the plot
@@ -156,7 +156,7 @@ if __name__ == "__main__":
         print("Usage: python plot_flux.py [filename]")
         print("No filename provided. Searching for 'flux*' in current directory...")
         # Find any file starting with 'flux' and ending with ''
-        found_files = glob.glob('result*')
+        found_files = glob.glob('*.flux')
         if not found_files:
             print("Error: No 'flux*' file found. Exiting.")
             sys.exit(1)

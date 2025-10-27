@@ -72,6 +72,7 @@ geometry_class::geometry_class(input_class const &input_object)
 
 
     }
+    X = x_out;
 
     for(int celly = 0; celly < input_object.cellY_vector.size(); celly++)
     {
@@ -101,6 +102,7 @@ geometry_class::geometry_class(input_class const &input_object)
         y_j_plus_half.insert(y_j_plus_half.end(), cell_yj_plus_half.begin(), cell_yj_plus_half.end());
 
     }
+    Y = y_out;
 
     for (int i = 0; i < x_i.size(); i++)
     {

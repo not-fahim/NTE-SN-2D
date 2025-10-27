@@ -33,6 +33,8 @@ struct input_class
     int S_n, max_it, refinement;
     std::vector<mat_class> mat_vector;
     double tol_out, tol_in;
+    double pin_pitch;
+    std::vector<int> pin_dim;
 };
 
 input_class read_input_file();

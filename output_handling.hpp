@@ -29,5 +29,5 @@ void write_flux_output(
     const geometry_class& geometry,
     const std::vector<std::vector<std::vector<double>>>& flux
 );
-
+void print_banner(std::ofstream &outputfile);
 #endif // OUTPUT_WRITER_HPP
