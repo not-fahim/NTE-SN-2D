@@ -33,6 +33,7 @@ class geometry_class
     double sigma_s(int i, int j, int to_g, int from_g) const;
     double nu_sigmaf(int i, int j, int g) const;
     double chi(int i,int j,int g) const;
+    double sigma_f(int i,int j,int g) const;
     void  calculate_fission_density_g(std::vector<std::vector<std::vector<double>>>  const &flux, std::vector<std::vector<std::vector<double>>> &fission_density_g, double const &keff);
 };
 

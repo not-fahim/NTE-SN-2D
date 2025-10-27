@@ -1,6 +1,26 @@
 #include "geo_mat_parser.hpp"
 
 using namespace std;
+template <typename T>
+std::vector<std::vector<T>> transpose(const std::vector<std::vector<T>>& original_matrix) {
+    if (original_matrix.empty() || original_matrix[0].empty()) {
+        return {}; // Handle empty matrix case
+    }
+
+    size_t rows = original_matrix.size();
+    size_t cols = original_matrix[0].size();
+
+    // Create the transposed matrix with swapped dimensions
+    std::vector<std::vector<T>> transposed_matrix(cols, std::vector<T>(rows));
+
+    // Fill the transposed matrix
+    for (size_t i = 0; i < rows; ++i) {
+        for (size_t j = 0; j < cols; ++j) {
+            transposed_matrix[j][i] = original_matrix[i][j];
+        }
+    }
+    return transposed_matrix;
+}
 
 void parseCoordinates( stringstream& ss,  vector<cell_class>& targetVector) {
     double x;
@@ -71,6 +91,7 @@ input_class read_input_file()
 
     string problemfilename = read_global_file();
     ifstream inputFile(problemfilename); 
+    std::vector<std::vector<int>> matmap_temp;
     
     if (!inputFile.is_open()) {
          cerr << "Error: Could not open:"<<problemfilename <<  endl;
@@ -122,10 +143,6 @@ input_class read_input_file()
                 if(value == "true")
                 {
                     input_obj.pin_calc = true;
-                }
-                else if(value == "false")
-                {
-                    input_obj.pin_calc = false;
                 }
             }
         }
@@ -186,10 +203,11 @@ input_class read_input_file()
                 }
                 if (!row.empty()) 
                 {
-                    input_obj.matmap_cell.push_back(row);
+                    matmap_temp.push_back(row);
                 }
             }
-            std::reverse(input_obj.matmap_cell.begin(), input_obj.matmap_cell.end());
+            std::reverse(matmap_temp.begin(), matmap_temp.end());
+            input_obj.matmap_cell = transpose(matmap_temp);
         }
     }
     inputFile.close();
@@ -262,6 +280,13 @@ std::vector<mat_class> read_material_input(std::string filename)
                     while(matstream >> value)
                     {
                         mat.chi.push_back(value);
+                    }
+                }
+                else if(keyword == "fis")
+                {
+                    while(matstream >> value)
+                    {
+                        mat.sigma_f.push_back(value);
                     }
                 }
                 else if(keyword == "sca")

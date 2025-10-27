@@ -50,9 +50,10 @@ void write_flux_output(
     outfile << "% Flux array organization: [group][i_x][j_y]" << std::endl;
     outfile << "% Flux matrices below are printed with i_x (columns) and j_y (rows)." << std::endl;
     outfile << "% an input parser reads the first row, stores in a vector and so on. so vector of vectors will have access index [i_x][i_y]" << std::endl;
-
     outfile << std::endl;
 
+    outfile<<"name "<< input.name << std::endl;
+    outfile<<"groups "<< geometry.groups << std::endl<<std::endl;
     if(input.pin_calc == false) 
     {
         outfile << "% this output was not generated for pin power calculation from DOTB"<<std::endl;
@@ -88,13 +89,13 @@ void write_flux_output(
         
         outfile << "% array of length of each cell in mesh used in the solver & is useful for pin power calc"<<std::endl;
         //write delx
-        outfile << "delx";
+        outfile << "delxi";
         for (int i = 0; i < geometry.Nx; ++i) {
             outfile << " " << geometry.delx_i[i];
         }
         outfile << std::endl;
         //write dely
-        outfile << "dely";
+        outfile << "delyj";
         for (int j = 0; j < geometry.Ny; ++j) {
             outfile << " " << geometry.dely_j[j];
         }
@@ -120,6 +121,32 @@ void write_flux_output(
         }
         outfile << std::endl; // Add a newline for spacing between groups
     }
+
+    
+    
+    if(input.pin_calc == true) 
+    {
+        outfile<<"%the follwoing is fission density= phi*sigma_f"<<std::endl;
+        outfile<< std::endl<<"fiss_den"<<std::endl;
+        double fiss_density = 0.0;
+        for (int j = 0; j < geometry.Ny; ++j) 
+        {
+            for (int i = 0; i < geometry.Nx; ++i) 
+            {
+                fiss_density = 0.0;
+                for(int g=0; g< geometry.groups; g++)
+                {
+                    fiss_density += flux[g][i][j] * geometry.sigma_f(i,j,g);
+                }
+                outfile << fiss_density << ((i == geometry.Nx - 1) ? "" : " ");
+            }
+            outfile << std::endl;
+        }
+        outfile << std::endl; // Add a newline for spacing between groups
+
+    }
+  
+    
 
     outfile.close();
     std::cout << "Successfully wrote flux output to " << filename << std::endl;

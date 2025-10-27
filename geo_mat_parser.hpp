@@ -19,7 +19,7 @@ struct cell_class
 struct mat_class
 {
     std::string name;
-    std::vector<double> sigma_t, nu_sigma_f, chi;
+    std::vector<double> sigma_t, nu_sigma_f, chi, sigma_f;
     std::vector<std::vector<double>> sigma_s;
 };
 

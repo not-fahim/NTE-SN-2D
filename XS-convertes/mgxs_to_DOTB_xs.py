@@ -7,8 +7,8 @@ import numpy as np
 
 cross_section_domain='material'  # could either cell or material
 
-HDF5_FILE_PATH = 'mgxs.h5'
-OUTPUT_FILE_PATH = '34x34-bare-8g.xs'
+HDF5_FILE_PATH = 'mgxs-3x3-large-pins.h5'
+OUTPUT_FILE_PATH = 'mini3x3-largepins-2g.xs'
 
 
 #    Based on the h5dump, have cells or materials "1", "2", and "3".
@@ -38,22 +38,15 @@ def write_material_block(h5_file, output_file, domain_id, material_name):
     #     output_file.write(f"tot {total_str}\n")
     # except KeyError:
     #     print(f"  Warning: 'total' cross section not found for cell {domain_id}.")
-
-    # Nu-fission cross section (nu_sigma_f)
+   
+    
+    # transport cross section (sigma_tr)
     try:
-        nuf_xs = h5_file[f'/{cross_section_domain}/{domain_id}/nu-fission/average'][:]
-        nuf_str = ' '.join([f'{x:.8e}' for x in nuf_xs])
-        output_file.write(f"nuf {nuf_str}\n")
+        tra = h5_file[f'/{cross_section_domain}/{domain_id}/transport/average'][:]
+        tra_str = ' '.join([f'{x:.8e}' for x in tra])
+        output_file.write(f"tot {tra_str}\n")
     except KeyError:
-        print(f"  Warning: 'nu-fission' cross section not found for cell {domain_id}.")
-        
-    # Fission spectrum (chi)
-    try:
-        chi = h5_file[f'/{cross_section_domain}/{domain_id}/chi/average'][:]
-        chi_str = ' '.join([f'{x:.8e}' for x in chi])
-        output_file.write(f"chi {chi_str}\n")
-    except KeyError:
-        print(f"  Warning: 'chi' xs not found for cell {domain_id}.")
+        print(f"  Warning: 'transport' xs not found for cell {domain_id}.")
     
     # absorption cross section (sigma_a)
     try:
@@ -63,13 +56,32 @@ def write_material_block(h5_file, output_file, domain_id, material_name):
     except KeyError:
         print(f"  Warning: 'absorption' xs not found for cell {domain_id}.")
     
-    # transport cross section (sigma_tr)
+    # Nu-fission cross section (nu_sigma_f)
     try:
-        tra = h5_file[f'/{cross_section_domain}/{domain_id}/transport/average'][:]
-        tra_str = ' '.join([f'{x:.8e}' for x in tra])
-        output_file.write(f"tot {tra_str}\n")
+        nuf_xs = h5_file[f'/{cross_section_domain}/{domain_id}/nu-fission/average'][:]
+        nuf_str = ' '.join([f'{x:.8e}' for x in nuf_xs])
+        output_file.write(f"nuf {nuf_str}\n")
     except KeyError:
-        print(f"  Warning: 'transport' xs not found for cell {domain_id}.")
+        print(f"  Warning: 'nu-fission' cross section not found for cell {domain_id}.")
+    
+    # Fission spectrum (chi)
+    try:
+        chi = h5_file[f'/{cross_section_domain}/{domain_id}/chi/average'][:]
+        chi_str = ' '.join([f'{x:.8e}' for x in chi])
+        output_file.write(f"chi {chi_str}\n")
+    except KeyError:
+        print(f"  Warning: 'chi' xs not found for cell {domain_id}.")
+    
+    # Fission (fis)
+    try:
+        fis = h5_file[f'/{cross_section_domain}/{domain_id}/fission/average'][:]
+        fis_str = ' '.join([f'{x:.8e}' for x in fis])
+        output_file.write(f"fis {fis_str}\n")
+    except KeyError:
+        print(f"  Warning: 'fis' xs not found for cell {domain_id}.")
+    
+    
+
 
     # --- Read 2D Dataset (scatter matrix) ---
     try:

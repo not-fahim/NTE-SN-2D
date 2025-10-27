@@ -151,6 +151,12 @@ double geometry_class::sigma_s(int i, int j, int to_g, int from_g) const
     return materials[material].sigma_s[to_g][from_g];
 }
 
+double geometry_class::sigma_f(int i, int j, int g) const
+{
+    int material = matmap_mesh[i][j];
+    return materials[material].sigma_f[g];
+}
+
 void geometry_class::calculate_fission_density_g(std::vector<std::vector<std::vector<double>>>  const &flux, std::vector<std::vector<std::vector<double>>> &fission_density_g, double const &keff)
 {
     double total_fission_density;

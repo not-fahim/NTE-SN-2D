@@ -12,7 +12,6 @@ def parse_flux_file(filename):
     
     cellx_mid = []
     celly_mid = []
-    refinement = 0
     fluxes = {}
     
     current_phi_name = None
@@ -36,8 +35,6 @@ def parse_flux_file(filename):
                 elif keyword == 'celly':
                     celly_mid = [float(y) for y in parts[1:]]
                 
-                elif keyword == 'refinement':
-                    refinement = int(parts[1])
                 
                 elif keyword.startswith('phi'):
                     # We are starting a new flux group.
@@ -48,7 +45,8 @@ def parse_flux_file(filename):
                     # Start new group
                     current_phi_name = keyword
                     current_phi_data = []
-                
+                elif keyword.startswith('fiss_den'):
+                    break
                 else:
                     # This must be flux data
                     if current_phi_name:
@@ -77,7 +75,7 @@ def parse_flux_file(filename):
         # Y has shape (Ny, Nx)
         # So, no transpose is needed! The read data is already (Ny, Nx).
         
-        return cellx_mid, celly_mid, fluxes, refinement
+        return cellx_mid, celly_mid, fluxes
 
     except FileNotFoundError:
         print(f"Error: File '{filename}' not found.")
@@ -169,7 +167,7 @@ if __name__ == "__main__":
         print(f"Error: File not found at '{filename}'")
         sys.exit(1)
         
-    x_mid, y_mid, fluxes, refinement = parse_flux_file(filename)
+    x_mid, y_mid, fluxes = parse_flux_file(filename)
     
     if fluxes:
         # Create a base name for the output .png
@@ -178,4 +176,3 @@ if __name__ == "__main__":
         plot_fluxes(x_mid, y_mid, fluxes, basename)
     else:
         print("Could not plot. No data was successfully parsed.")
-
