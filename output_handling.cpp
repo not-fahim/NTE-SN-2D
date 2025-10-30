@@ -32,7 +32,7 @@ void write_flux_output(
     const std::vector<std::vector<std::vector<double>>>& flux)
 {
     // Create the output filename
-    std::string filename = "result_" + input.name + ".flux";
+    std::string filename = "Dotb_flux_fiss_den" + input.name + ".flux";
     std::ofstream outfile(filename);
 
     if (!outfile.is_open()) 
@@ -66,7 +66,7 @@ void write_flux_output(
     {
         outfile << "% this output was generated for pin power calculation from DOTB"<<std::endl;
         outfile << "pincalc true" << std::endl;
-        outfile<< "pitch "<<input.pin_pitch << " cm" << std::endl;
+        outfile<< "pitch "<<input.pin_pitch << std::endl;
         outfile << "pins " << input.pin_num[0] <<"\t" << input.pin_num[1] << std::endl;
     }
     outfile << std::endl;
@@ -115,7 +115,7 @@ void write_flux_output(
             for (int i = 0; i < geometry.Nx; ++i) 
             {
                 // Accessing flux as [g][i][j]
-                outfile << flux[g][i][j] << ((i == geometry.Nx - 1) ? "" : " ");
+                outfile << flux[g][i][j] <<std::scientific<< ((i == geometry.Nx - 1) ? "" : " ");
             }
             outfile << std::endl;
         }
@@ -138,7 +138,7 @@ void write_flux_output(
                 {
                     fiss_density += flux[g][i][j] * geometry.sigma_f(i,j,g);
                 }
-                outfile << fiss_density << ((i == geometry.Nx - 1) ? "" : " ");
+                outfile << fiss_density << std::scientific << ((i == geometry.Nx - 1) ? "" : " ");
             }
             outfile << std::endl;
         }

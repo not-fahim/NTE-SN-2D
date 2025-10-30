@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 
+std::vector<double> cell_midpoints(std::vector<double> x_i_minus_half, std::vector<double> x_i_plus_half);
+std::vector<double> range(double min, double max, size_t N);
 struct doutb_flux_output_class
 {
     std::string name;
@@ -21,7 +23,7 @@ doutb_flux_output_class read_dotb_flux_ouput(std::string filename);
 class pin_data_class
 {
     public:
-    
+    std::string name;
     // Pin geometry info,  will come from theinput file
     double pin_pitch;
     double pin_volume;
@@ -35,7 +37,8 @@ class pin_data_class
 
     //pin data storage
     std::vector<std::vector<std::vector<double>>>  pin_flux; // [group][pin_x][pin_y]
-    std::vector<std::vector<double>> pin_volume_mesh, pin_fission_rate; //fission rate [pin_x][pin_y]
+    std::vector<std::vector<double>> pin_volume_mesh;
+    std::vector<std::vector<double>> pin_fission_rate; //fission rate [pin_x][pin_y]
 
     // mesh info from the solver, comes from the input file
     std::vector<double> mesh_xi, mesh_yj; // solver mesh cell midpoints in x and y
@@ -44,12 +47,9 @@ class pin_data_class
     std::vector<std::vector<std::vector<double>>> mesh_flux; // [group][mesh_x][mesh_y]
     std::vector<std::vector<double>> mesh_fission_density;
 
-    pin_data_class(doutb_flux_output_class const &dotb);
-    void calculate_pin_avg_group_flux();
-    void calculate_pin_fission_rate_from_mesh();
-
-
-
+    pin_data_class(std::string filename);
+    void calculate_pin_power();
+    void write_pin_power_output();
     
 };
 

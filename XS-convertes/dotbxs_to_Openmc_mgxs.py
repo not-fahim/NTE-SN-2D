@@ -32,7 +32,7 @@ def parse_dotb_file(filepath):
                     current_material = parts[1]
                     materials_data[current_material] = {}
                     parsing_sca = False
-                elif keyword in ['nuf', 'chi', 'abs', 'tot']:
+                elif keyword in ['nuf', 'chi', 'abs', 'tot', 'fis']:
                     data = [float(x) for x in parts[1:]]
                     if not num_groups:
                         num_groups = len(data)
@@ -60,7 +60,7 @@ def parse_dotb_file(filepath):
                     current_material = parts[1]
                     materials_data[current_material] = {}
                     parsing_sca = False
-                elif keyword in ['nuf', 'chi', 'abs', 'tot']:
+                elif keyword in ['nuf', 'chi', 'abs', 'tot', 'fis']:
                     data = [float(x) for x in parts[1:]]
                     if not num_groups:
                         num_groups = len(data)
@@ -123,6 +123,8 @@ def generate_openmc_script(materials_data, num_groups, output_path):
             script_content += f"{var_name}_xsdata.set_total({data['tot']}, temperature=294.)\n"
         if 'abs' in data:
             script_content += f"{var_name}_xsdata.set_absorption({data['abs']}, temperature=294.)\n"
+        if 'fis' in data:
+            script_content += f"{var_name}_xsdata.set_fission({data['fis']}, temperature=294.)\n"
         if 'nuf' in data:
             script_content += f"{var_name}_xsdata.set_nu_fission({data['nuf']}, temperature=294.)\n"
         if 'chi' in data:

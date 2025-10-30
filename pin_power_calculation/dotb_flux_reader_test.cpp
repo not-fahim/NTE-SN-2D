@@ -54,6 +54,21 @@ void print3DVector(const std::vector<std::vector<std::vector<double>>>& vec) {
     }
 }
 
+void print2DVector(const std::vector<std::vector<double>> &vec) {
+
+        for (size_t j = 0; j < 10; ++j) {
+            
+            // Loop through the third dimension (index k)
+            // This loop prints all elements of vec[i][j] on one line
+            for (size_t k = 0; k < 10; ++k) {
+                std::cout << vec[j][k] << " ";
+            }
+            // Move to the next line after printing a full 1D row
+            std::cout << std::endl; 
+        }
+
+}
+
 template<typename T>
 void print_vector(const std::string& name, const std::vector<T>& vec) {
     std::cout << "  " << std::setw(12) << std::left << (name + ":") << "[ ";
@@ -106,6 +121,9 @@ int main() {
     std::cout << "\n  --- Mesh Flux Data (mesh_flux) ---" << std::endl;
     std::cout << "  (Showing size and first 5x5 elements of each group)" << std::endl;
     print3DVector(flux_data.mesh_flux);
+    std::cout << "\n  --- Mesh Fission Density Data (mesh_fission_density) ---" << std::endl;
+    print2DVector(flux_data.mesh_fission_density);
+    
 
     std::cout << "----------------------------------------" << std::endl;
     std::cout << "Test finished." << std::endl;

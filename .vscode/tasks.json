@@ -13,6 +13,7 @@
 				"geo_mat_parser.cpp",
 				"geometry_class.cpp",
 				"output_handling.cpp",
+				"pin_power.cpp",
 				"-o",
 				"${fileDirname}\\solver.exe"
 			],

@@ -9,6 +9,7 @@
 #include "angular_quadrature.hpp"
 #include "geo_mat_parser.hpp"
 #include "output_handling.hpp"
+#include "pin_power.hpp"
 
 using namespace std;
 
@@ -497,8 +498,6 @@ int main()
 
     cout<<"\n ---outer iteration done---\n keff: "<<keff << " outer iteration: "<< out_it <<" source iteration: " << total_src_it << endl;
     cout<<endl<<endl;
-    write_flux_output(input_object, geometry, flux_g_ij);
-
     if (outputfile.is_open()) 
     {
         outputfile<<name<<"  refinement = "<< input_object.refinement<<" S-"<<input_object.S_n << " keff= " << keff ;
@@ -513,6 +512,16 @@ int main()
         return 1;
     }
     outputfile.close();
+
+    write_flux_output(input_object, geometry, flux_g_ij);
+    if(input_object.pin_calc)
+    {
+        cout<<"--- Pin power calculation requested ---"<<endl;
+        string dotb_filename = "Dotb_flux_fiss_den" + input_object.name + ".flux";
+        pin_data_class pin_data_object(dotb_filename);
+        pin_data_object.calculate_pin_power();
+        pin_data_object.write_pin_power_output();
+    }
     return 0;
 
 }

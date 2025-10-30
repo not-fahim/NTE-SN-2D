@@ -135,16 +135,18 @@ input_class read_input_file()
             if(linestream >> value)
                 input_obj.max_it = value;
         }
-        if(keyword=="pincalc")
+        else if(keyword=="pincalc")
         {
-            string value;
-            if(linestream >> value)
-            {
-                if(value == "true")
+            string pincalc;
+            linestream >> pincalc;
+            
+                if(pincalc == "true")
                 {
                     input_obj.pin_calc = true;
+                    std::cout<<"Pin power calculation requested in input file."<<std::endl;
                 }
-            }
+                
+            
         }
         else if(keyword == "pinpitch" && input_obj.pin_calc==true) 
         {
@@ -216,6 +218,11 @@ input_class read_input_file()
     {
         cerr<<"failed to read material object";
         input_obj.name = "no_mat";
+    }
+    else if(input_obj.pin_calc == true && input_obj.mat_vector[0].sigma_f.size() == 0)
+    {
+        cerr<<"Error: Pin power calculation requested but no fission cross-section data found in material file."<<endl;
+        input_obj.pin_calc = false;
     }
     return input_obj;
 
