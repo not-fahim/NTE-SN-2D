@@ -1,0 +1,10 @@
+% Pin Power Output for case: mini3x3-pin-cart
+% Pin power is normalized to total fission rate = 1.0
+pinx 0.63000000 1.89000000 3.15000000
+piny 0.63000000 1.89000000 3.15000000
+
+% the output is exactly same as visualization. rows are piny with Y at top and 0 at bottom, columns are pinx
+fiss_rate
+1.09696734e+00 1.05315911e+00 1.09696734e+00
+1.05315912e+00 3.99494174e-01 1.05315911e+00
+1.09696735e+00 1.05315912e+00 1.09696734e+00

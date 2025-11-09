@@ -23,6 +23,7 @@ std::vector<double> cell_midpoints(std::vector<double> x_i_minus_half, std::vect
 
 geometry_class::geometry_class(input_class const &input_object)
 {
+    
     //vectors to work inside function. thus have "in" in the name
     std::vector<double> cell_xi_minus_half, cell_yj_minus_half, cell_xi_plus_half, cell_yj_plus_half;
     std::vector<double> cell_xi, cell_yj;
@@ -72,7 +73,7 @@ geometry_class::geometry_class(input_class const &input_object)
 
 
     }
-
+    
     for(int celly = 0; celly < input_object.cellY_vector.size(); celly++)
     {
         if(celly == 0)
@@ -101,7 +102,7 @@ geometry_class::geometry_class(input_class const &input_object)
         y_j_plus_half.insert(y_j_plus_half.end(), cell_yj_plus_half.begin(), cell_yj_plus_half.end());
 
     }
-
+    
     for (int i = 0; i < x_i.size(); i++)
     {
         delx_i.push_back(x_i_plus_half[i] - x_i_minus_half[i]);

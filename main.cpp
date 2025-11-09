@@ -5,6 +5,7 @@
 #include<iomanip>
 #include<fstream>
 #include<sstream>
+#include<chrono>
 #include "geometry_class.hpp"
 #include "angular_quadrature.hpp"
 #include "geo_mat_parser.hpp"
@@ -90,10 +91,32 @@ double Linferror(vector<vector<vector<double>>> const &vector1, vector<vector<ve
 
 }
 
+double L2error(vector<vector<vector<double>>> const &vector1, vector<vector<vector<double>>> const &vector2)
+{
+
+    double abs_max=0;
+    double a;
+    double error=0;
+    for (int i=0; i< size(vector1); i++)
+    {
+        for (int j=0; j< size(vector1[i]); j++)
+        {
+            for(int k=0; k<size(vector1[i][j]); k++)
+            {
+                a = (vector1[i][j][k] - vector2[i][j][k]);
+                error+=a*a;
+            } 
+        }
+    }
+
+    return error;
+
+}
+
 template <typename t>
 bool is_flux_converged(vector<vector<vector<t>>> const &vector1, vector<vector<vector<t>>> const &vector2 )
 {
-    if(Linferror(vector1, vector2) < intol )
+    if(L2error(vector1, vector2) < intol )
     {
         return true;
     }
@@ -409,6 +432,11 @@ double sum_fission_rate(vector<vector<vector<double>>> const &flux_g_ij, geometr
 int main()
 {
 
+    auto start = chrono::high_resolution_clock::now();
+    auto now_timet = chrono::system_clock::to_time_t(start);
+    auto now_local = localtime(&now_timet);
+    cout << "Local Time " << put_time(now_local, "%c") << endl;
+    
     input_class input_object = read_input_file();
     print_input_data(input_object);
     intol = input_object.tol_in;
@@ -420,9 +448,10 @@ int main()
     angle.print_quadrature_card();
     //form geometr_n
     geometry_class geometry(input_object);
-
+    cout<< "geometry initialization done"<<endl;
     double keff = 1.0, keff_old=1.0;
     Transport_sweep_class sweep_object(angle, geometry);
+    
 
     vector<vector<vector<double>>> flux_g_ij(geometry.groups, vector<vector<double>> (geometry.Nx, vector<double> (geometry.Ny,1.0)));
     vector<vector<vector<double>>> flux_g_in(geometry.groups, vector<vector<double>> (geometry.Nx, vector<double> (geometry.Ny,1.0)));
@@ -433,7 +462,7 @@ int main()
     vector<vector<vector<double>>> fission_density_g_ij(geometry.groups, vector<vector<double>> (geometry.Nx, vector<double> (geometry.Ny,1.0)));
 
 
-    cout<< "initialization done"<<endl;
+    cout<< "flux and source initialization done"<<endl;
 
     ofstream outputfile;
     string name = input_object.name;
@@ -449,10 +478,10 @@ int main()
     outputfile << std::fixed << std::setprecision(8);
     outputfile<<name<<"\t"<<geometry.groups<<" group"<< endl;
     outputfile<<"XS file: "<<input_object.xsfile<<endl;
+    outputfile << "Calculation Start Time " << put_time(now_local, "%c") << endl;
     outputfile<<"S-"<<input_object.S_n<< "\t quad set, \t mesh refinement: "<<input_object.refinement<<endl <<endl;
-    outputfile<<"iteration \t keff \t \t error \t \t iteration "<<endl;
-    cout<<"iteration \t keff \t \t error \t iteration"<<endl;
-
+    outputfile<<"outer \t \t keff \t \t \terror \t \t \tinner "<<endl;
+    cout<<"iteration \t \t keff \t \t error \t \t  iteration"<<endl;
     do //outer iteration
     {
         geometry.calculate_fission_density_g(flux_g_ij, fission_density_g_ij, keff);
@@ -491,10 +520,19 @@ int main()
         keff = keff_old * sum_fission_rate(flux_g_ij, geometry)/sum_fission_rate(flux_g_old, geometry);
         vector3Dcopy(flux_g_old, flux_g_ij);
         out_it +=1;
+        if(src_it >= 10 || out_it % 50 == 0){
         outputfile<<out_it<<"\t \t"<<keff<<"\t \t"<<(keff-keff_old)/keff<< "\t \t"<< src_it<<endl;
+        }
+        if(src_it >= 5 || out_it % 10 == 0){
         cout<<out_it<<"\t"<<keff<<"\t \t"<<(keff-keff_old)/keff<<"\t \t"<< src_it <<endl;
-
+        }
     }while(!is_keff_converged(keff_old, keff) );
+    outputfile<<out_it<<"\t \t"<<keff<<"\t \t"<<(keff-keff_old)/keff<< "\t \t"<< src_it<<endl;
+
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed_time = (end - start);
+    double duration = elapsed_time.count();
+    cout<< endl << "Time taken: " << duration<< " seconds" << endl;
 
     cout<<"\n ---outer iteration done---\n keff: "<<keff << " outer iteration: "<< out_it <<" source iteration: " << total_src_it << endl;
     cout<<endl<<endl;
@@ -502,7 +540,7 @@ int main()
     {
         outputfile<<name<<"  refinement = "<< input_object.refinement<<" S-"<<input_object.S_n << " keff= " << keff ;
         outputfile<<endl;
-        outputfile<< "flux distribution is saved in the flux_"<<name<<".m and .py file script"<< endl;
+        outputfile<< "time for calculation: "<<duration << " s" <<endl;
         outputfile<<"--- End of calculation ---"<<endl<<endl;
     }
 

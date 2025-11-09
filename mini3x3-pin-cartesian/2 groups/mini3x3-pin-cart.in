@@ -1,0 +1,52 @@
+
+%input file for DOTB
+%Discrete Ordinates with Two BrainCells
+
+
+% name of the problem:
+
+Name mini3x3-pin-cart
+
+% tolerances:
+% intol outtol
+tol 1E-6 1E-6
+maxit 1000
+
+pincalc true
+
+% number of pins in 
+%       x   y
+pins    3  3   
+pinpitch 1.26
+
+
+% (cell length, number of mesh) is given as tupple in sequence
+% cellx left to right
+% celly bottom to top
+
+CellX (0.151, 2) (0.958, 4) (0.302, 4) (0.958, 4) (0.302, 4) (0.958, 4) (0.151, 2) 
+CellY (0.151, 2) (0.958, 4) (0.302, 4) (0.958, 4) (0.302, 4) (0.958, 4) (0.151, 2)
+refinement 8
+
+% boundary condition:
+%   B   T   L   R
+
+BC  1   1   1   1
+
+% Quadrature set:
+SN 16
+
+% material and cross section file:
+
+xsfile mini3x3-largepins-2g.xs
+
+% material correspondig to each pair CellX CellY
+% insert left to right, bottom to top (bottom in 1st line, then 2nd ... the topmost matrials in the last line)
+MatMap
+3 3 3 3 3 3 3
+3 1 3 1 3 1 3
+3 3 3 3 3 3 3
+3 1 3 2 3 1 3
+3 3 3 3 3 3 3
+3 1 3 1 3 1 3
+3 3 3 3 3 3 3

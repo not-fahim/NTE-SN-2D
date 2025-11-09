@@ -316,7 +316,7 @@ void pin_data_class::write_pin_power_output()
     outfile << "fiss_rate" << std::endl;
     for (int j = pin_num_y-1; j >=0; --j) {
         for (int i = 0; i < pin_num_x; ++i) {
-            outfile << pin_fission_rate[i][j]<< std::scientific << ((i == pin_num_x - 1) ? "" : " ");
+            outfile<< std::scientific  << pin_fission_rate[i][j]<< ((i == pin_num_x - 1) ? "" : " ");
         }
         outfile << std::endl;
     }

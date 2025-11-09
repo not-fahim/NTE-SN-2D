@@ -670,3 +670,54 @@ iteration 	 keff 	 	 error 	 	 iteration
 flux distribution is saved in the flux_34x34-Bare.m and .py file script
 --- End of calculation ---
 
+
+%********************************************************
+%*                 .-~*~~~*~-.                          *
+%*                .-~~~~~~~~~-.                         *
+%*               /  X       X  \                        *
+%*              |    .-----.    |                       *
+%*               \  '_______'  /                        *
+%*                `-.........-'                         *
+%* *          ____   ___  ____ ____                     *
+%*           |  _ \ / _ \_   _| __ )                    *
+%*           | | | | | | || | |  _ \                    *
+%*           | |_| | |_| || | | |_) |                   *
+%*           |____/ \___/ |_| |____/                    *
+%********************************************************
+%*      Discrete Ordinate with Two Braincells           *
+%********************************************************
+    
+34x34-Bare	2 group
+XS file: mini3x3-pin-cart-2g-no-upscattering.xs
+S-16	 quad set, 	 mesh refinement: 8
+
+iteration 	 keff 	 	 error 	 	 iteration 
+
+%********************************************************
+%*                 .-~*~~~*~-.                          *
+%*                .-~~~~~~~~~-.                         *
+%*               /  X       X  \                        *
+%*              |    .-----.    |                       *
+%*               \  '_______'  /                        *
+%*                `-.........-'                         *
+%* *          ____   ___  ____ ____                     *
+%*           |  _ \ / _ \_   _| __ )                    *
+%*           | | | | | | || | |  _ \                    *
+%*           | |_| | |_| || | | |_) |                   *
+%*           |____/ \___/ |_| |____/                    *
+%********************************************************
+%*      Discrete Ordinate with Two Braincells           *
+%********************************************************
+    
+34x34-Bare	2 group
+XS file: mini3x3-pin-cart-2g-no-upscattering.xs
+S-16	 quad set, 	 mesh refinement: 4
+
+iteration 	 keff 	 	 error 	 	 iteration 
+1	 	0.62468265	 	-0.60081283	 	20
+2	 	0.73543154	 	0.15059035	 	20
+3	 	0.77747312	 	0.05407464	 	20
+34x34-Bare  refinement = 4 S-16 keff= 0.77747312
+flux distribution is saved in the flux_34x34-Bare.m and .py file script
+--- End of calculation ---
+

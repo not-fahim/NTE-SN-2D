@@ -7,16 +7,16 @@ import numpy as np
 
 cross_section_domain='material'  # could either cell or material
 
-HDF5_FILE_PATH = 'mgxs-3x3-large-pins.h5'
-OUTPUT_FILE_PATH = 'mini3x3-largepins-2g.xs'
+HDF5_FILE_PATH = 'mgxs.h5'
+OUTPUT_FILE_PATH = 'msr3x3-2g.xs'
 
 
-#    Based on the h5dump, have cells or materials "1", "2", and "3".
+#    Based on the h5dump, have cells or materials "1", "2", and "5".
 material_map = {
 
     '1': 'fuel',
-    '2': 'gad',
-    '3': "cool"
+    '5': 'cont',
+    '2': "grap"
 }
 
 

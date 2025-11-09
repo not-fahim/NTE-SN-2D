@@ -120,15 +120,15 @@ def generate_openmc_script(materials_data, num_groups, output_path):
     {var_name}_xsdata.order = 0 # Isotropic scattering
     """)
         if 'tot' in data:
-            script_content += f"{var_name}_xsdata.set_total({data['tot']}, temperature=294.)\n"
+            script_content += f"{var_name}_xsdata.set_total({data['tot']} )\n"
         if 'abs' in data:
-            script_content += f"{var_name}_xsdata.set_absorption({data['abs']}, temperature=294.)\n"
+            script_content += f"{var_name}_xsdata.set_absorption({data['abs']} )\n"
         if 'fis' in data:
-            script_content += f"{var_name}_xsdata.set_fission({data['fis']}, temperature=294.)\n"
+            script_content += f"{var_name}_xsdata.set_fission({data['fis']} )\n"
         if 'nuf' in data:
-            script_content += f"{var_name}_xsdata.set_nu_fission({data['nuf']}, temperature=294.)\n"
+            script_content += f"{var_name}_xsdata.set_nu_fission({data['nuf']} )\n"
         if 'chi' in data:
-            script_content += f"{var_name}_xsdata.set_chi({data['chi']}, temperature=294.)\n"
+            script_content += f"{var_name}_xsdata.set_chi({data['chi']} )\n"
         if 'sca' in data:
             sca_matrix_transposed = [list(row) for row in zip(*data['sca'])]
             matrix_str_rows = [', '.join(map(str, row)) for row in sca_matrix_transposed]
@@ -141,7 +141,7 @@ def generate_openmc_script(materials_data, num_groups, output_path):
     {var_name}_scatter_matrix = [[{matrix_str}]]
     {var_name}_scatter_matrix = np.array({var_name}_scatter_matrix)
     {var_name}_scatter_matrix = np.rollaxis({var_name}_scatter_matrix, 0, 3)
-    {var_name}_xsdata.set_scatter_matrix({var_name}_scatter_matrix, temperature=294.)
+    {var_name}_xsdata.set_scatter_matrix({var_name}_scatter_matrix )
     """)
         script_content += f"mg_cross_sections_file.add_xsdata({var_name}_xsdata)\n\n"
 

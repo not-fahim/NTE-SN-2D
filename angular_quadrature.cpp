@@ -16,7 +16,7 @@ angular::angular(int N)
         w = std::vector<double> {1.0};
     }
 
-    if(N==4) //S4
+    else if(N==4) //S4
     {
         //mapping weights for each angluar direction
         sequence = std::vector<int> {
@@ -32,7 +32,7 @@ angular::angular(int N)
         w = std::vector<double> {0.33333333};
     }
 
-    if(N==6) // S6
+    else if (N==6) // S6
     {
         //mapping weights for each angluar direction
         sequence = std::vector<int>{
@@ -51,7 +51,7 @@ angular::angular(int N)
         };
     }
 
-    if(N==8) //S8
+    else if(N==8) //S8
     {
         //mapping weights for each angluar direction
         sequence = std::vector<int> {
@@ -74,7 +74,7 @@ angular::angular(int N)
         };
     }
     
-    if(N==12) //S12
+    else if(N==12) //S12
     {
         //mapping weights for each angluar direction
         sequence = std::vector<int> {
@@ -102,7 +102,7 @@ angular::angular(int N)
         };
     }
 
-    if(N==16) //S16
+    else if(N==16) //S16
     {
         std::vector<int> sequence1{ 
             1,
@@ -135,7 +135,9 @@ angular::angular(int N)
                                 0.01544801 };
         w=w1;
     }
-    
+
+    else 
+        std::cerr<<"invalid quadrature sets in input file"<<std::endl;
     //mapping mu and eta for each angular direction
     for(int i=0; i<std::size(mu) ; i++)
     {

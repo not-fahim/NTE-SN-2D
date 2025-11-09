@@ -160,30 +160,27 @@ doutb_flux_output_class read_dotb_flux_ouput(std::string filename)
             }
             dotb_output.mesh_fission_density = fission_density_temp;
         }
-        for(int g=0; g<groups; g++)
+
+        else if (keyword.find("phi")!=std::string::npos) 
         {
-            if (keyword == "phi"+std::to_string(g+1)) 
+            group_flux_temp.clear();
+            std::string matrixLine;
+            while ( getline(inputFile, matrixLine) && !matrixLine.empty()) 
             {
-                group_flux_temp.clear();
-                std::string matrixLine;
-                while ( getline(inputFile, matrixLine) && !matrixLine.empty()) 
+                std::stringstream matrixStream(matrixLine);
+                std::vector<double> row;
+                double value;
+                while (matrixStream >> value) 
                 {
-                    std::stringstream matrixStream(matrixLine);
-                    std::vector<double> row;
-                    double value;
-                    while (matrixStream >> value) 
-                    {
-                        row.push_back(value);
-                    }
-                    if (!row.empty()) 
-                    {
-                        group_flux_temp.push_back(row);
-                    }
+                    row.push_back(value);
                 }
-                dotb_output.mesh_flux.push_back(group_flux_temp);
+                if (!row.empty()) 
+                {
+                    group_flux_temp.push_back(row);
+                }
             }
+            dotb_output.mesh_flux.push_back(group_flux_temp);
         }
-        
     }
     inputFile.close();
     return dotb_output;
@@ -264,7 +261,12 @@ void pin_data_class::calculate_pin_power()
             total_fission_rate += mesh_fission_density[i][j] * mesh_volume;
         }
     }
-    normalize_vector(pin_fission_rate, total_fission_rate);
+
+    int fuel_pin=0;
+    for(pi = 0; pi < pin_num_x; pi++)
+        for(pj = 0; pj< pin_num_y; pj++)
+            if(pin_fission_rate[pi][pj] != 0 ) fuel_pin ++;
+    normalize_vector(pin_fission_rate, total_fission_rate/fuel_pin);
     
 };
 
@@ -283,7 +285,7 @@ void pin_data_class::write_pin_power_output()
 
     // Write header
     outfile << "% Pin Power Output for case: " << name << std::endl;
-    outfile << "% Pin power is normalized to total fission rate = 1.0" << std::endl;
+    outfile << "% Pin power is normalized by total_fission_rate/num_fuel_pins" << std::endl;
 
     outfile << "pinx";
     for (int i = 0; i < pin_num_x; ++i) {
@@ -299,7 +301,7 @@ void pin_data_class::write_pin_power_output()
     outfile << "fiss_rate" << std::endl;
     for (int j = pin_num_y-1; j >=0; --j) {
         for (int i = 0; i < pin_num_x; ++i) {
-            outfile << pin_fission_rate[i][j]<< std::scientific << ((i == pin_num_x - 1) ? "" : " ");
+            outfile<< std::scientific << pin_fission_rate[i][j] << ((i == pin_num_x - 1) ? "" : " ");
         }
         outfile << std::endl;
     }
